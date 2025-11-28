@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useNavigate } from "react-router-dom";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -16,6 +17,7 @@ const navLinks = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,6 +55,13 @@ export function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 gradient-bg transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
+          <button
+            onClick={() => navigate('/login')}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg gradient-bg text-primary-foreground hover:opacity-90 transition-all duration-300 hover:scale-105 font-medium"
+          >
+            <LogIn size={16} />
+            Login
+          </button>
           <ThemeToggle />
         </div>
 
@@ -86,6 +95,13 @@ export function Navbar() {
               {link.name}
             </a>
           ))}
+          <button
+            onClick={() => { navigate('/login'); setIsMobileMenuOpen(false); }}
+            className="flex items-center gap-2 px-4 py-2 rounded-lg gradient-bg text-primary-foreground hover:opacity-90 transition-all duration-300 font-medium justify-center mt-2"
+          >
+            <LogIn size={16} />
+            Login
+          </button>
         </div>
       </div>
     </nav>
