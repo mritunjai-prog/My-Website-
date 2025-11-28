@@ -6,7 +6,7 @@ const education = [
     degree: "B.Tech in Computer Science and Engineering",
     institution: "Sir Padampat Singhania University",
     location: "Udaipur, Rajasthan",
-    duration: "2022 - 2026",
+    duration: "2023 - 2027",
     cgpa: "8.5 CGPA",
     highlights: [
       "Specialization in Machine Learning & AI",
@@ -31,32 +31,39 @@ export function Education() {
 
         <div className="max-w-4xl mx-auto">
           {education.map((edu, index) => (
-            <AnimatedSection
-              key={index}
-              animation="fade-in-left"
-              delay={200}
-            >
+            <AnimatedSection key={index} animation="fade-in-left" delay={200}>
               <div className="relative p-8 rounded-2xl glass-card hover:shadow-elevated transition-all duration-500">
                 {/* Decorative corner element */}
                 <div className="absolute top-0 right-0 w-32 h-32 gradient-bg opacity-10 rounded-bl-full" />
-                
+
                 <div className="relative">
                   <div className="flex items-start justify-between mb-6 flex-wrap gap-4">
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0">
-                        <GraduationCap className="text-primary-foreground" size={32} />
+                        <GraduationCap
+                          className="text-primary-foreground"
+                          size={32}
+                        />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-bold mb-1">{edu.degree}</h3>
-                        <p className="text-lg text-primary font-medium">{edu.institution}</p>
-                        <p className="text-sm text-muted-foreground">{edu.location}</p>
+                        <h3 className="text-2xl font-bold mb-1">
+                          {edu.degree}
+                        </h3>
+                        <p className="text-lg text-primary font-medium">
+                          {edu.institution}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {edu.location}
+                        </p>
                       </div>
                     </div>
-                    
+
                     <div className="flex flex-col gap-2">
                       <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 border border-primary/20">
                         <Calendar size={16} className="text-primary" />
-                        <span className="text-sm font-medium">{edu.duration}</span>
+                        <span className="text-sm font-medium">
+                          {edu.duration}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 border border-primary/20">
                         <Award size={16} className="text-primary" />
