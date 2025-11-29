@@ -38,26 +38,30 @@ export function Experience() {
           </p>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto space-y-6">
           {experiences.map((exp, index) => {
             const Icon = exp.icon;
             return (
               <AnimatedSection
                 key={index}
-                animation="slide-up"
-                delay={index * 100}
+                animation="fade-in-left"
+                delay={index * 150}
               >
-                <div className="h-full p-6 rounded-2xl glass-card hover:shadow-elevated transition-all duration-500 group">
-                  <div className="w-12 h-12 rounded-lg gradient-bg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Icon className="text-primary-foreground" size={24} />
+                <div className="p-8 rounded-2xl glass-card hover:shadow-elevated transition-all duration-500 group">
+                  <div className="flex items-start gap-6">
+                    <div className="w-16 h-16 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Icon className="text-primary-foreground" size={28} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold mb-2">{exp.title}</h3>
+                      <p className="text-primary text-lg font-medium mb-3">
+                        {exp.organization}
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {exp.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{exp.title}</h3>
-                  <p className="text-primary font-medium mb-3">
-                    {exp.organization}
-                  </p>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {exp.description}
-                  </p>
                 </div>
               </AnimatedSection>
             );
