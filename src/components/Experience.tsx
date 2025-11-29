@@ -40,8 +40,8 @@ export function Experience() {
 
         <div className="max-w-4xl mx-auto relative">
           {/* Vertical timeline line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30"></div>
-          
+          <div className="absolute left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30 hidden md:block"></div>
+
           <div className="space-y-8">
             {experiences.map((exp, index) => {
               const Icon = exp.icon;
@@ -49,25 +49,23 @@ export function Experience() {
                 <AnimatedSection
                   key={index}
                   animation="fade-in-left"
-                  delay={index * 150}
+                  delay={index * 200}
                 >
-                  <div className="relative pl-20">
+                  <div className="relative md:pl-24">
                     {/* Timeline dot and icon */}
-                    <div className="absolute left-0 top-0 w-16 h-16 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg">
+                    <div className="absolute left-0 md:left-2 top-6 w-16 h-16 rounded-xl gradient-bg flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
                       <Icon className="text-primary-foreground" size={28} />
                     </div>
-                    
+
                     {/* Content card */}
-                    <div className="p-8 rounded-2xl glass-card hover:shadow-elevated transition-all duration-500 group">
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold mb-2">{exp.title}</h3>
-                        <p className="text-primary text-lg font-medium mb-3">
-                          {exp.organization}
-                        </p>
-                        <p className="text-muted-foreground leading-relaxed">
-                          {exp.description}
-                        </p>
-                      </div>
+                    <div className="ml-20 md:ml-0 p-6 md:p-8 rounded-2xl glass-card hover:shadow-elevated transition-all duration-500 hover:translate-x-2">
+                      <h3 className="text-xl md:text-2xl font-bold mb-2">{exp.title}</h3>
+                      <p className="text-primary text-base md:text-lg font-medium mb-3">
+                        {exp.organization}
+                      </p>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {exp.description}
+                      </p>
                     </div>
                   </div>
                 </AnimatedSection>
