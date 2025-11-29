@@ -40,7 +40,7 @@ export function Experience() {
 
         <div className="max-w-4xl mx-auto relative">
           {/* Vertical timeline line */}
-          <div className="absolute left-8 top-8 bottom-8 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30 hidden md:block"></div>
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30 hidden md:block"></div>
 
           <div className="space-y-8">
             {experiences.map((exp, index) => {
@@ -52,8 +52,8 @@ export function Experience() {
                   delay={index * 200}
                 >
                   <div className="relative md:pl-24">
-                    {/* Timeline dot and icon */}
-                    <div className="absolute left-0 md:left-2 top-6 w-16 h-16 rounded-xl gradient-bg flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
+                    {/* Timeline dot and icon - centered on the line */}
+                    <div className="absolute left-0 top-0 w-16 h-16 rounded-xl gradient-bg flex items-center justify-center shadow-lg hover:scale-110 transition-all duration-300">
                       <Icon className="text-primary-foreground" size={28} />
                     </div>
 
