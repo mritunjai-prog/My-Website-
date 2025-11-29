@@ -94,7 +94,7 @@ export function Contact() {
                   <Github className="group-hover:text-primary-foreground transition-colors" size={24} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/mritunjai-singh"
+                  href="https://www.linkedin.com/in/mritunjai-prog"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-4 rounded-xl glass-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 hover:gradient-bg group"

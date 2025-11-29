@@ -76,7 +76,7 @@ export function Hero() {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com/in/mritunjai-singh"
+                href="https://www.linkedin.com/in/mritunjai-prog"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 hover:glow-primary"

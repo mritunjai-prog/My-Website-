@@ -59,7 +59,9 @@ export function Experience() {
 
                     {/* Content card */}
                     <div className="ml-20 md:ml-0 p-6 md:p-8 rounded-2xl glass-card hover:shadow-elevated transition-all duration-500 hover:translate-x-2">
-                      <h3 className="text-xl md:text-2xl font-bold mb-2">{exp.title}</h3>
+                      <h3 className="text-xl md:text-2xl font-bold mb-2">
+                        {exp.title}
+                      </h3>
                       <p className="text-primary text-base md:text-lg font-medium mb-3">
                         {exp.organization}
                       </p>
