@@ -44,7 +44,7 @@ export function Experience() {
             return (
               <AnimatedSection
                 key={index}
-                animation="fade-in-up"
+                animation="slide-up"
                 delay={index * 100}
               >
                 <div className="h-full p-6 rounded-2xl glass-card hover:shadow-elevated transition-all duration-500 group">
@@ -52,7 +52,9 @@ export function Experience() {
                     <Icon className="text-primary-foreground" size={24} />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{exp.title}</h3>
-                  <p className="text-primary font-medium mb-3">{exp.organization}</p>
+                  <p className="text-primary font-medium mb-3">
+                    {exp.organization}
+                  </p>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {exp.description}
                   </p>
