@@ -4,7 +4,7 @@ import { Briefcase, Award, Users } from "lucide-react";
 const experiences = [
   {
     icon: Users,
-    title: "Secretary",
+    title: "General Secretary",
     organization: "SPSU 2025-26",
     description:
       "Maintaining all official records, minutes of meetings, and council documentation, while ensuring effective communication and smooth execution of council decisions.",
@@ -72,8 +72,12 @@ export function Experience() {
                         <exp.icon className="text-primary" size={20} />
                         <h4 className="font-semibold">{exp.title}</h4>
                       </div>
-                      <p className="text-sm text-primary mb-2">{exp.organization}</p>
-                      <p className="text-sm text-muted-foreground">{exp.description}</p>
+                      <p className="text-sm text-primary mb-2">
+                        {exp.organization}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {exp.description}
+                      </p>
                     </div>
                   </div>
                 </AnimatedSection>
