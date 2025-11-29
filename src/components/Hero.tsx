@@ -19,30 +19,32 @@ export function Hero() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left">
-            <div className="opacity-0 animate-fade-in-left" style={{ animationDelay: "200ms" }}>
+            <div
+              className="opacity-0 animate-fade-in-left"
+              style={{ animationDelay: "200ms" }}
+            >
               <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
                 AI/ML Developer & Competitive Programmer
               </span>
             </div>
-            
-            <h1 
+
+            <h1
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 opacity-0 animate-fade-in"
               style={{ animationDelay: "400ms" }}
             >
-              Hi, I'm{" "}
-              <span className="gradient-text">Mritunjai Singh</span>
+              Hi, I'm <span className="gradient-text">Mritunjai Singh</span>
             </h1>
-            
-            <p 
+
+            <p
               className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-8 opacity-0 animate-fade-in"
               style={{ animationDelay: "600ms" }}
             >
-              A dedicated Machine Learning Engineer with strong expertise in building 
-              intelligent systems and data-driven solutions. Passionate about leveraging 
-              AI to create impactful and scalable solutions.
+              A dedicated Machine Learning Engineer with strong expertise in
+              building intelligent systems and data-driven solutions. Passionate
+              about leveraging AI to create impactful and scalable solutions.
             </p>
 
-            <div 
+            <div
               className="flex flex-wrap gap-4 justify-center lg:justify-start opacity-0 animate-fade-in"
               style={{ animationDelay: "800ms" }}
             >
@@ -63,7 +65,7 @@ export function Hero() {
               </Button>
             </div>
 
-            <div 
+            <div
               className="flex gap-4 mt-8 justify-center lg:justify-start opacity-0 animate-fade-in"
               style={{ animationDelay: "1000ms" }}
             >
@@ -93,7 +95,7 @@ export function Hero() {
           </div>
 
           {/* Profile Image */}
-          <div 
+          <div
             className="flex-shrink-0 opacity-0 animate-scale-in"
             style={{ animationDelay: "500ms" }}
           >
@@ -104,7 +106,7 @@ export function Hero() {
                   src={profileImage}
                   alt="Mritunjai Singh"
                   className="w-full h-full object-cover scale-105"
-                  style={{ objectPosition: 'center 30%', aspectRatio: '1/1' }}
+                  style={{ objectPosition: "center 30%", aspectRatio: "1/1" }}
                 />
               </div>
             </div>
@@ -112,8 +114,14 @@ export function Hero() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1200ms" }}>
-          <a href="#about" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+        <div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in"
+          style={{ animationDelay: "1200ms" }}
+        >
+          <a
+            href="#about"
+            className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+          >
             <span className="text-sm">Scroll Down</span>
             <ArrowDown className="animate-bounce-soft" size={20} />
           </a>

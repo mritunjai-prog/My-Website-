@@ -61,7 +61,7 @@ export function Contact() {
               <div>
                 <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
                 <p className="text-muted-foreground mb-8">
-                  I'm always open to discussing new projects, creative ideas, or 
+                  I'm always open to discussing new projects, creative ideas, or
                   opportunities to be part of your vision.
                 </p>
               </div>
@@ -74,10 +74,15 @@ export function Contact() {
                     className="flex items-center gap-4 p-4 rounded-xl glass-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 group"
                   >
                     <div className="w-12 h-12 rounded-lg gradient-bg flex items-center justify-center group-hover:animate-bounce-soft">
-                      <info.icon className="text-primary-foreground" size={20} />
+                      <info.icon
+                        className="text-primary-foreground"
+                        size={20}
+                      />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">{info.label}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {info.label}
+                      </p>
                       <p className="font-medium">{info.value}</p>
                     </div>
                   </a>
@@ -91,7 +96,10 @@ export function Contact() {
                   rel="noopener noreferrer"
                   className="p-4 rounded-xl glass-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 hover:gradient-bg group"
                 >
-                  <Github className="group-hover:text-primary-foreground transition-colors" size={24} />
+                  <Github
+                    className="group-hover:text-primary-foreground transition-colors"
+                    size={24}
+                  />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/mritunjai-prog"
@@ -99,7 +107,10 @@ export function Contact() {
                   rel="noopener noreferrer"
                   className="p-4 rounded-xl glass-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 hover:gradient-bg group"
                 >
-                  <Linkedin className="group-hover:text-primary-foreground transition-colors" size={24} />
+                  <Linkedin
+                    className="group-hover:text-primary-foreground transition-colors"
+                    size={24}
+                  />
                 </a>
               </div>
             </div>
@@ -111,7 +122,9 @@ export function Contact() {
               <div className="p-8 rounded-2xl glass-card">
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Name</label>
+                    <label className="text-sm font-medium mb-2 block">
+                      Name
+                    </label>
                     <Input
                       placeholder="Your name"
                       value={formData.name}
@@ -123,7 +136,9 @@ export function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Email</label>
+                    <label className="text-sm font-medium mb-2 block">
+                      Email
+                    </label>
                     <Input
                       type="email"
                       placeholder="your@email.com"
@@ -136,7 +151,9 @@ export function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Message</label>
+                    <label className="text-sm font-medium mb-2 block">
+                      Message
+                    </label>
                     <Textarea
                       placeholder="Your message..."
                       rows={5}
