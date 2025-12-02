@@ -26,8 +26,8 @@ const botResponses = {
     "Check out the Projects section to see his work on AI/ML applications, web development, and system design. Each project showcases different technical skills!",
   ],
   contact: [
-    "You can reach Mritunjai at mritunjay045k@gmail.com or connect on LinkedIn and GitHub. Feel free to reach out!",
-    "Want to get in touch? Head to the Contact section or email mritunjay045k@gmail.com directly!",
+    "You can reach Mritunjai at mritunjaisinghwork@gmail.com or connect on LinkedIn and GitHub. Feel free to reach out!",
+    "Want to get in touch? Head to the Contact section or email mritunjaisinghwork@gmail.com directly!",
   ],
   experience: [
     "Mritunjai is currently serving as Secretary at SPSU 2025-26 and was Sports Secretary in 2024-25. He's also a Core Coordinator at LeetLegion Coding Club.",
