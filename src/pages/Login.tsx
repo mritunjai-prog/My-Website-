@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,6 +13,32 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  // Check for OAuth callback and handle session
+  useEffect(() => {
+    const handleOAuthCallback = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      if (session) {
+        localStorage.setItem("isAuthenticated", "true");
+        toast.success("Login successful! Welcome back!");
+        setTimeout(() => navigate("/"), 1000);
+      }
+    };
+
+    handleOAuthCallback();
+
+    // Listen for auth state changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session) {
+        localStorage.setItem("isAuthenticated", "true");
+        toast.success("Login successful! Welcome back!");
+        setTimeout(() => navigate("/"), 1000);
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [navigate]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X, LogIn } from "lucide-react";
+import { Menu, X, LogIn, LogOut, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -17,6 +19,7 @@ const navLinks = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,6 +29,27 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Check for current user session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    localStorage.removeItem("isAuthenticated");
+    setUser(null);
+    toast.success("Logged out successfully!");
+  };
 
   return (
     <nav
@@ -55,13 +79,29 @@ export function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 gradient-bg transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
-          <button
-            onClick={() => navigate('/login')}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg gradient-bg text-primary-foreground hover:opacity-90 transition-all duration-300 hover:scale-105 font-medium"
-          >
-            <LogIn size={16} />
-            Login
-          </button>
+          {user ? (
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 text-sm">
+                <User size={14} />
+                <span className="font-medium">{user.user_metadata?.name || user.email?.split('@')[0]}</span>
+              </div>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/20 hover:bg-primary/10 text-foreground hover:border-primary transition-all duration-300 font-medium"
+              >
+                <LogOut size={16} />
+                Logout
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => navigate('/login')}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg gradient-bg text-primary-foreground hover:opacity-90 transition-all duration-300 hover:scale-105 font-medium"
+            >
+              <LogIn size={16} />
+              Login
+            </button>
+          )}
           <ThemeToggle />
         </div>
 
@@ -95,13 +135,29 @@ export function Navbar() {
               {link.name}
             </a>
           ))}
-          <button
-            onClick={() => { navigate('/login'); setIsMobileMenuOpen(false); }}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg gradient-bg text-primary-foreground hover:opacity-90 transition-all duration-300 font-medium justify-center mt-2"
-          >
-            <LogIn size={16} />
-            Login
-          </button>
+          {user ? (
+            <>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-primary/10 text-sm">
+                <User size={14} />
+                <span className="font-medium">{user.user_metadata?.name || user.email?.split('@')[0]}</span>
+              </div>
+              <button
+                onClick={() => { handleLogout(); setIsMobileMenuOpen(false); }}
+                className="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/20 hover:bg-primary/10 text-foreground hover:border-primary transition-all duration-300 font-medium justify-center"
+              >
+                <LogOut size={16} />
+                Logout
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => { navigate('/login'); setIsMobileMenuOpen(false); }}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg gradient-bg text-primary-foreground hover:opacity-90 transition-all duration-300 font-medium justify-center mt-2"
+            >
+              <LogIn size={16} />
+              Login
+            </button>
+          )}
         </div>
       </div>
     </nav>
