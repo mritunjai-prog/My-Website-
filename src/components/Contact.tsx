@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import API_URL from "@/config/api";
 
 const contactInfo = [
   {
