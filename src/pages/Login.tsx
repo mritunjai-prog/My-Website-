@@ -4,19 +4,74 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Mail, Lock, Github, Linkedin, Eye, EyeOff } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simple authentication - in production use proper auth
-    if (email && password) {
-      localStorage.setItem("isAuthenticated", "true");
-      navigate("/");
+    setLoading(true);
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) throw error;
+
+      if (data.user) {
+        localStorage.setItem("isAuthenticated", "true");
+        toast.success("Login successful!");
+        navigate("/");
+      }
+    } catch (error: any) {
+      console.error("Login error:", error);
+      toast.error(error.message || "Failed to login");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGithubLogin = async () => {
+    setLoading(true);
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "github",
+        options: {
+          redirectTo: `${window.location.origin}/`,
+        },
+      });
+
+      if (error) throw error;
+    } catch (error: any) {
+      console.error("GitHub login error:", error);
+      toast.error(error.message || "Failed to login with GitHub");
+      setLoading(false);
+    }
+  };
+
+  const handleLinkedInLogin = async () => {
+    setLoading(true);
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "linkedin_oidc",
+        options: {
+          redirectTo: `${window.location.origin}/`,
+        },
+      });
+
+      if (error) throw error;
+    } catch (error: any) {
+      console.error("LinkedIn login error:", error);
+      toast.error(error.message || "Failed to login with LinkedIn");
+      setLoading(false);
     }
   };
 
@@ -35,7 +90,9 @@ const Login = () => {
           {/* Header */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl gradient-bg mb-4 animate-float">
-              <span className="text-3xl font-bold text-primary-foreground">MS</span>
+              <span className="text-3xl font-bold text-primary-foreground">
+                MS
+              </span>
             </div>
             <h1 className="text-3xl font-bold mb-2">
               Welcome <span className="gradient-text">Back</span>
@@ -87,7 +144,11 @@ const Login = () => {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? (
+                    <EyeOff className="w-5 h-5" />
+                  ) : (
+                    <Eye className="w-5 h-5" />
+                  )}
                 </button>
               </div>
             </div>
@@ -107,9 +168,10 @@ const Login = () => {
             <Button
               type="submit"
               size="lg"
-              className="w-full h-12 gradient-bg text-primary-foreground hover:opacity-90 transition-all duration-300 hover:scale-[1.02] glow-primary font-semibold"
+              disabled={loading}
+              className="w-full h-12 gradient-bg text-primary-foreground hover:opacity-90 transition-all duration-300 hover:scale-[1.02] glow-primary font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Sign In
+              {loading ? "Signing in..." : "Sign In"}
             </Button>
           </form>
 
@@ -119,22 +181,30 @@ const Login = () => {
               <div className="w-full border-t border-primary/20"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-card text-muted-foreground">Or continue with</span>
+              <span className="px-4 bg-card text-muted-foreground">
+                Or continue with
+              </span>
             </div>
           </div>
 
           {/* Social Login */}
           <div className="grid grid-cols-2 gap-4">
             <Button
+              type="button"
+              onClick={handleGithubLogin}
+              disabled={loading}
               variant="outline"
-              className="h-12 border-primary/20 hover:bg-primary/10 hover:border-primary transition-all"
+              className="h-12 border-primary/20 hover:bg-primary/10 hover:border-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Github className="w-5 h-5 mr-2" />
               GitHub
             </Button>
             <Button
+              type="button"
+              onClick={handleLinkedInLogin}
+              disabled={loading}
               variant="outline"
-              className="h-12 border-primary/20 hover:bg-primary/10 hover:border-primary transition-all"
+              className="h-12 border-primary/20 hover:bg-primary/10 hover:border-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Linkedin className="w-5 h-5 mr-2" />
               LinkedIn
