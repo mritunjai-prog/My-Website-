@@ -37,7 +37,7 @@ const BlogPage = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch(`${API_URL}/api/blog`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3000'}/api/blog`);
       const data = await response.json();
       if (data.success) {
         setPosts(data.data);
