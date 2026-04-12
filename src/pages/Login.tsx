@@ -17,8 +17,10 @@ const Login = () => {
   // Check for OAuth callback and handle session
   useEffect(() => {
     const handleOAuthCallback = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
       if (session) {
         localStorage.setItem("isAuthenticated", "true");
         toast.success("Login successful! Welcome back!");
@@ -29,7 +31,9 @@ const Login = () => {
     handleOAuthCallback();
 
     // Listen for auth state changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       if (session) {
         localStorage.setItem("isAuthenticated", "true");
         toast.success("Login successful! Welcome back!");

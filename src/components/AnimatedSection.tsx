@@ -4,7 +4,12 @@ import { cn } from "@/lib/utils";
 interface AnimatedSectionProps {
   children: React.ReactNode;
   className?: string;
-  animation?: "fade-in" | "fade-in-left" | "fade-in-right" | "scale-in" | "slide-up";
+  animation?:
+    | "fade-in"
+    | "fade-in-left"
+    | "fade-in-right"
+    | "scale-in"
+    | "slide-up";
   delay?: number;
 }
 
@@ -18,6 +23,11 @@ export function AnimatedSection({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -25,7 +35,7 @@ export function AnimatedSection({
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
     );
 
     if (ref.current) {
@@ -39,9 +49,9 @@ export function AnimatedSection({
     <div
       ref={ref}
       className={cn(
-        "opacity-0",
+        "opacity-0 gpu-smooth",
         isVisible && `animate-${animation}`,
-        className
+        className,
       )}
       style={{ animationDelay: `${delay}ms` }}
     >

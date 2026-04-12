@@ -11,6 +11,13 @@ export const experiences = [
   },
   {
     icon: Briefcase,
+    title: "Vice President",
+    organization: "Xe-Tech Student Chapter, SPSU",
+    description:
+      "Managing and planning technical events in collaboration with the student body. Promoting technical competitions and fostering a strong tech culture across campus.",
+  },
+  {
+    icon: Briefcase,
     title: "Sports Secretary",
     organization: "SPSU 2024-25",
     description:

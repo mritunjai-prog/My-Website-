@@ -1,16 +1,18 @@
 import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Supabase is only used for authentication (Login/OAuth)
+// If you don't need user login, you can safely remove this or leave empty values
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "";
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || "";
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.error("❌ Missing Supabase environment variables");
-  console.error(
-    "Please add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to your .env file"
+  console.warn(
+    "⚠️  Supabase not configured - authentication features will be disabled",
   );
 }
 
-export const supabase = createClient(supabaseUrl || "", supabaseAnonKey || "", {
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     autoRefreshToken: true,
     persistSession: true,

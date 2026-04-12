@@ -22,8 +22,8 @@ const botResponses = {
     "His technical skills include Machine Learning, Data Science, Full-stack Development, and System Design. Would you like to know more about any specific area?",
   ],
   projects: [
-    "Mritunjai has worked on several impressive projects including KolamCraft (AI-powered art platform), MentorAid (student dropout prediction), and a Hospital Management System. Which one interests you?",
-    "Check out the Projects section to see his work on AI/ML applications, web development, and system design. Each project showcases different technical skills!",
+    "Mritunjai's latest projects include DocuMind (intelligent document processing), StratosAI (decision intelligence), MentorAid, DocentDesk, and KolamCraft. Which one interests you?",
+    "Check out the Projects section to see his updated work across GenAI, NLP, ML, and full-stack product design. Each project showcases a different technical focus!",
   ],
   contact: [
     "You can reach Mritunjai at mritunjaisinghwork@gmail.com or connect on LinkedIn and GitHub. Feel free to reach out!",
@@ -42,24 +42,56 @@ const botResponses = {
 
 const getResponse = (message: string): string => {
   const lowerMessage = message.toLowerCase();
-  
-  if (lowerMessage.includes("hello") || lowerMessage.includes("hi") || lowerMessage.includes("hey")) {
-    return botResponses.greeting[Math.floor(Math.random() * botResponses.greeting.length)];
+
+  if (
+    lowerMessage.includes("hello") ||
+    lowerMessage.includes("hi") ||
+    lowerMessage.includes("hey")
+  ) {
+    return botResponses.greeting[
+      Math.floor(Math.random() * botResponses.greeting.length)
+    ];
   }
-  if (lowerMessage.includes("skill") || lowerMessage.includes("technology") || lowerMessage.includes("tech")) {
-    return botResponses.skills[Math.floor(Math.random() * botResponses.skills.length)];
+  if (
+    lowerMessage.includes("skill") ||
+    lowerMessage.includes("technology") ||
+    lowerMessage.includes("tech")
+  ) {
+    return botResponses.skills[
+      Math.floor(Math.random() * botResponses.skills.length)
+    ];
   }
-  if (lowerMessage.includes("project") || lowerMessage.includes("work") || lowerMessage.includes("built")) {
-    return botResponses.projects[Math.floor(Math.random() * botResponses.projects.length)];
+  if (
+    lowerMessage.includes("project") ||
+    lowerMessage.includes("work") ||
+    lowerMessage.includes("built")
+  ) {
+    return botResponses.projects[
+      Math.floor(Math.random() * botResponses.projects.length)
+    ];
   }
-  if (lowerMessage.includes("contact") || lowerMessage.includes("email") || lowerMessage.includes("reach")) {
-    return botResponses.contact[Math.floor(Math.random() * botResponses.contact.length)];
+  if (
+    lowerMessage.includes("contact") ||
+    lowerMessage.includes("email") ||
+    lowerMessage.includes("reach")
+  ) {
+    return botResponses.contact[
+      Math.floor(Math.random() * botResponses.contact.length)
+    ];
   }
-  if (lowerMessage.includes("experience") || lowerMessage.includes("certification") || lowerMessage.includes("leadership")) {
-    return botResponses.experience[Math.floor(Math.random() * botResponses.experience.length)];
+  if (
+    lowerMessage.includes("experience") ||
+    lowerMessage.includes("certification") ||
+    lowerMessage.includes("leadership")
+  ) {
+    return botResponses.experience[
+      Math.floor(Math.random() * botResponses.experience.length)
+    ];
   }
-  
-  return botResponses.default[Math.floor(Math.random() * botResponses.default.length)];
+
+  return botResponses.default[
+    Math.floor(Math.random() * botResponses.default.length)
+  ];
 };
 
 export function Chatbot() {
@@ -100,16 +132,19 @@ export function Chatbot() {
     setIsTyping(true);
 
     // Simulate bot typing and response
-    setTimeout(() => {
-      const botMessage: Message = {
-        id: messages.length + 2,
-        text: getResponse(inputValue),
-        isBot: true,
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, botMessage]);
-      setIsTyping(false);
-    }, 1000 + Math.random() * 1000);
+    setTimeout(
+      () => {
+        const botMessage: Message = {
+          id: messages.length + 2,
+          text: getResponse(inputValue),
+          isBot: true,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, botMessage]);
+        setIsTyping(false);
+      },
+      1000 + Math.random() * 1000,
+    );
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -129,7 +164,7 @@ export function Chatbot() {
           "gradient-bg text-primary-foreground",
           "hover:scale-110 transition-all duration-300",
           "glow-primary",
-          isOpen && "scale-0"
+          isOpen && "scale-0",
         )}
         aria-label="Open chat"
       >
@@ -143,7 +178,7 @@ export function Chatbot() {
           "glass-card border-2 border-primary/20 rounded-2xl shadow-elevated",
           "flex flex-col overflow-hidden",
           "transition-all duration-500",
-          isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"
+          isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0",
         )}
       >
         {/* Header */}
@@ -153,8 +188,12 @@ export function Chatbot() {
               <Bot className="text-primary-foreground" size={24} />
             </div>
             <div>
-              <h3 className="font-semibold text-primary-foreground">AI Assistant</h3>
-              <p className="text-xs text-primary-foreground/80">Always here to help</p>
+              <h3 className="font-semibold text-primary-foreground">
+                AI Assistant
+              </h3>
+              <p className="text-xs text-primary-foreground/80">
+                Always here to help
+              </p>
             </div>
           </div>
           <Button
@@ -174,7 +213,7 @@ export function Chatbot() {
               key={message.id}
               className={cn(
                 "flex gap-3 animate-fade-in",
-                message.isBot ? "justify-start" : "justify-end"
+                message.isBot ? "justify-start" : "justify-end",
               )}
             >
               {message.isBot && (
@@ -182,18 +221,21 @@ export function Chatbot() {
                   <Bot className="text-primary-foreground" size={16} />
                 </div>
               )}
-              
+
               <div
                 className={cn(
                   "max-w-[75%] p-3 rounded-2xl",
                   message.isBot
                     ? "bg-primary/10 text-foreground border border-primary/20"
-                    : "gradient-bg text-primary-foreground"
+                    : "gradient-bg text-primary-foreground",
                 )}
               >
                 <p className="text-sm">{message.text}</p>
                 <span className="text-xs opacity-70 mt-1 block">
-                  {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  {message.timestamp.toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
                 </span>
               </div>
 
@@ -213,13 +255,19 @@ export function Chatbot() {
               <div className="bg-primary/10 text-foreground border border-primary/20 p-3 rounded-2xl">
                 <div className="flex gap-1">
                   <span className="w-2 h-2 bg-primary rounded-full animate-bounce" />
-                  <span className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: "0.2s" }} />
-                  <span className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: "0.4s" }} />
+                  <span
+                    className="w-2 h-2 bg-primary rounded-full animate-bounce"
+                    style={{ animationDelay: "0.2s" }}
+                  />
+                  <span
+                    className="w-2 h-2 bg-primary rounded-full animate-bounce"
+                    style={{ animationDelay: "0.4s" }}
+                  />
                 </div>
               </div>
             </div>
           )}
-          
+
           <div ref={messagesEndRef} />
         </div>
 
