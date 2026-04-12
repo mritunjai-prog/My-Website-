@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { MouseFollower } from "@/components/MouseFollower";
-import { AnimatedSection } from "@/components/AnimatedSection";
 
 const About = lazy(() =>
   import("@/components/About").then((module) => ({ default: module.About })),
@@ -54,30 +53,14 @@ const Index = () => {
       <Navbar />
       <Hero />
       <Suspense fallback={<SectionFallback />}>
-        <AnimatedSection animation="fade-in" delay={40}>
-          <About />
-        </AnimatedSection>
-        <AnimatedSection animation="fade-in" delay={110}>
-          <Skills />
-        </AnimatedSection>
-        <AnimatedSection animation="fade-in" delay={180}>
-          <Education />
-        </AnimatedSection>
-        <AnimatedSection animation="fade-in" delay={250}>
-          <Projects />
-        </AnimatedSection>
-        <AnimatedSection animation="fade-in" delay={320}>
-          <Experience />
-        </AnimatedSection>
-        <AnimatedSection animation="fade-in" delay={390}>
-          <Contact />
-        </AnimatedSection>
-        <AnimatedSection animation="fade-in" delay={460}>
-          <Footer />
-        </AnimatedSection>
-        <AnimatedSection animation="fade-in" delay={530}>
-          <Chatbot />
-        </AnimatedSection>
+        <About />
+        <Skills />
+        <Education />
+        <Projects />
+        <Experience />
+        <Contact />
+        <Footer />
+        <Chatbot />
       </Suspense>
     </main>
   );

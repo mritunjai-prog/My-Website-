@@ -5,14 +5,15 @@ export function MouseFollower() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
-  const currentMagnetRef = useRef<HTMLElement | null>(null);
   const hoveringRef = useRef(false);
   const visibleRef = useRef(false);
   const cursorRef = useRef({ x: 0, y: 0, tx: 0, ty: 0 });
 
   useEffect(() => {
     const finePointer = window.matchMedia("(pointer: fine)").matches;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     setEnabled(finePointer && !reducedMotion);
   }, []);
 
@@ -36,32 +37,6 @@ export function MouseFollower() {
       cursorRef.current.tx = event.clientX;
       cursorRef.current.ty = event.clientY;
       if (!visibleRef.current) setVisible(true);
-
-      const target = event.target as HTMLElement | null;
-      const magnet = target?.closest(
-        "a, button, [role='button'], input, textarea, select, .cursor-hover"
-      ) as HTMLElement | null;
-
-      if (magnet) {
-        if (currentMagnetRef.current !== magnet) {
-          if (currentMagnetRef.current) {
-            currentMagnetRef.current.style.transform = "";
-          }
-          currentMagnetRef.current = magnet;
-          currentMagnetRef.current.style.transition = "transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1)";
-          currentMagnetRef.current.style.willChange = "transform";
-        }
-
-        const rect = magnet.getBoundingClientRect();
-        const relX = (event.clientX - (rect.left + rect.width / 2)) / (rect.width / 2 || 1);
-        const relY = (event.clientY - (rect.top + rect.height / 2)) / (rect.height / 2 || 1);
-        const pullX = Math.max(-1, Math.min(1, relX)) * 4;
-        const pullY = Math.max(-1, Math.min(1, relY)) * 4;
-        magnet.style.transform = `translate3d(${pullX}px, ${pullY}px, 0)`;
-      } else if (currentMagnetRef.current) {
-        currentMagnetRef.current.style.transform = "";
-        currentMagnetRef.current = null;
-      }
     };
 
     const onWindowLeave = () => setVisible(false);
@@ -71,7 +46,7 @@ export function MouseFollower() {
       const target = event.target as HTMLElement | null;
       if (!target) return;
       const hitInteractive = target.closest(
-        "a, button, [role='button'], input, textarea, select, label, .cursor-hover"
+        "a, button, [role='button'], input, textarea, select, label, .cursor-hover",
       );
       setHovering(Boolean(hitInteractive));
     };
@@ -106,9 +81,6 @@ export function MouseFollower() {
 
     return () => {
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
-      if (currentMagnetRef.current) {
-        currentMagnetRef.current.style.transform = "";
-      }
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseover", onOver);
       window.removeEventListener("mouseleave", onWindowLeave);
