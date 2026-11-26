@@ -1,0 +1,352 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   DESIGN TOKENS — "Signal in the Void"
+   Obsidian base · acid-lime signal · iris violet counterpoint
+   ========================================================================== */
+
+:root {
+  --bg: #05060a;
+  --panel: #0d1017;
+  --fg: #f2f2ec;
+  --muted: #8e908c;
+  --line: rgba(255, 255, 255, 0.12);
+
+  --acid: #d9ff3f;
+  --acid-ink: #080a00;
+  --accent-text: #d9ff3f;
+  --iris: #8b6cff;
+  --cyan: #5ee7ff;
+
+  --font-display: "Space Grotesk Variable", system-ui, sans-serif;
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+
+  --nav-h: 76px;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  --bg: #efece4;
+  --panel: #f8f6f0;
+  --fg: #0a0b0d;
+  --muted: #57595c;
+  --line: rgba(0, 0, 0, 0.14);
+
+  --acid: #d9ff3f;
+  --acid-ink: #0a0c00;
+  --accent-text: #4d6200;
+  --iris: #5b3ce0;
+  --cyan: #007d95;
+
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scrollbar-gutter: stable;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01" 1, "cv11" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+
+  ::selection {
+    background: var(--acid);
+    color: var(--acid-ink);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--acid);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  input,
+  textarea,
+  button {
+    font: inherit;
+  }
+
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--fg) 20%, transparent);
+    border-radius: 99px;
+  }
+}
+
+/* ==========================================================================
+   COMPONENTS
+   ========================================================================== */
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 1560px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 4.5rem);
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .link-line {
+    position: relative;
+    display: inline-block;
+  }
+  .link-line::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s var(--ease-out-expo);
+  }
+  .link-line:hover::after,
+  .link-line:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .outline-text {
+    color: transparent;
+    -webkit-text-stroke: 1px color-mix(in srgb, var(--fg) 55%, transparent);
+  }
+
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.055;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+    will-change: opacity;
+  }
+  html[data-theme="light"] .grain {
+    opacity: 0.045;
+    mix-blend-mode: multiply;
+  }
+
+  .field {
+    width: 100%;
+    border: 1px solid var(--line);
+    background: color-mix(in srgb, var(--bg) 60%, transparent);
+    border-radius: 4px;
+    padding: 0.95rem 1rem;
+    color: var(--fg);
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+  }
+  .field::placeholder {
+    color: color-mix(in srgb, var(--muted) 80%, transparent);
+  }
+  .field:focus {
+    outline: none;
+    border-color: var(--accent-text);
+    background: color-mix(in srgb, var(--panel) 80%, transparent);
+  }
+  .field[aria-invalid="true"] {
+    border-color: #ef4444;
+  }
+}
+
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+
+@layer utilities {
+  /* Split-text reveal: each line sits in an overflow-hidden mask. */
+  .line-mask {
+    display: block;
+    overflow: hidden;
+    /* Room for descenders without changing line rhythm. */
+    padding-bottom: 0.16em;
+    margin-bottom: -0.16em;
+  }
+
+  .char,
+  .word {
+    display: inline-block;
+    will-change: transform, opacity;
+  }
+
+}
+
+/* ==========================================================================
+   CUSTOM CURSOR — only for precise pointers
+   ========================================================================== */
+
+@media (pointer: fine) {
+  html[data-cursor="on"],
+  html[data-cursor="on"] * {
+    cursor: none !important;
+  }
+  html[data-cursor="on"] input,
+  html[data-cursor="on"] textarea {
+    cursor: text !important;
+  }
+}
+
+/* ==========================================================================
+   MARQUEE
+   ========================================================================== */
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--marquee-duration, 32s) linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ==========================================================================
+   SKILL ORBIT — CSS 3D sphere, counter-rotated labels
+   ========================================================================== */
+
+.orbit-stage {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+.orbit-sphere {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, -12deg)) rotateY(var(--ry, 0deg));
+  will-change: transform;
+}
+
+.orbit-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) translate3d(var(--x), var(--y), var(--z))
+    rotateY(calc(var(--ry, 0deg) * -1)) rotateX(calc(var(--rx, 0deg) * -1));
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   PRELOADER
+   ========================================================================== */
+
+.preloader-curtain {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1s var(--ease-out-expo);
+}
+.preloader-curtain[data-done="true"] {
+  clip-path: inset(0 0 100% 0);
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+  .grain {
+    opacity: 0.03;
+  }
+  .preloader-curtain {
+    display: none;
+  }
+}
