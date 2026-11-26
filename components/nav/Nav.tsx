@@ -117,7 +117,10 @@ export function Nav() {
             </span>
           </Link>
 
-          <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+          <nav
+            aria-label="Primary"
+            className="hidden items-center gap-1 md:flex"
+          >
             {navLinks.map((link) => (
               <button
                 key={link.href}
@@ -125,9 +128,7 @@ export function Nav() {
                 onClick={() => go(link.href)}
                 className={cn(
                   "group relative px-3 py-2 text-xs transition-colors",
-                  active === link.href
-                    ? "text-fg"
-                    : "text-muted hover:text-fg",
+                  active === link.href ? "text-fg" : "text-muted hover:text-fg",
                 )}
               >
                 <span className="mr-1.5 text-[0.55rem] tabular-nums text-accent/70">
@@ -137,7 +138,9 @@ export function Nav() {
                 <span
                   className={cn(
                     "absolute inset-x-3 -bottom-0.5 h-px origin-left bg-acid transition-transform duration-300",
-                    active === link.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100",
+                    active === link.href
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100",
                   )}
                 />
               </button>
@@ -163,7 +166,7 @@ export function Nav() {
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((value) => !value)}
-              className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-fg md:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-line text-fg md:hidden"
             >
               {open ? <X size={16} /> : <Menu size={16} />}
             </button>
@@ -179,35 +182,37 @@ export function Nav() {
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 flex flex-col bg-bg md:hidden"
+            className="fixed inset-0 z-40 flex flex-col overflow-y-auto overscroll-contain bg-bg md:hidden"
           >
             <div className="h-[var(--nav-h)]" />
             <nav
               aria-label="Mobile"
-              className="shell flex flex-1 flex-col justify-center gap-1"
+              className="shell flex flex-1 flex-col gap-1 py-6"
             >
-              {navLinks.map((link, index) => (
-                <motion.button
-                  key={link.href}
-                  type="button"
-                  onClick={() => go(link.href)}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.18 + index * 0.06, duration: 0.5 }}
-                  className="group flex items-baseline justify-between border-b border-line py-4 text-left"
-                >
-                  <span className="flex items-baseline gap-4">
-                    <span className="eyebrow text-accent">{link.index}</span>
-                    <span className="font-display text-4xl tracking-tighter">
-                      {link.label}
+              <div className="my-auto">
+                {navLinks.map((link, index) => (
+                  <motion.button
+                    key={link.href}
+                    type="button"
+                    onClick={() => go(link.href)}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.18 + index * 0.06, duration: 0.5 }}
+                    className="group flex items-baseline justify-between border-b border-line py-4 text-left"
+                  >
+                    <span className="flex items-baseline gap-4">
+                      <span className="eyebrow text-accent">{link.index}</span>
+                      <span className="font-display text-4xl tracking-tighter">
+                        {link.label}
+                      </span>
                     </span>
-                  </span>
-                  <ArrowUpRight
-                    size={18}
-                    className="text-muted transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
-                  />
-                </motion.button>
-              ))}
+                    <ArrowUpRight
+                      size={18}
+                      className="text-muted transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
+                    />
+                  </motion.button>
+                ))}
+              </div>
 
               <motion.div
                 initial={{ opacity: 0 }}
@@ -215,20 +220,29 @@ export function Nav() {
                 transition={{ delay: 0.5 }}
                 className="mt-10 flex flex-col gap-4"
               >
-                <a
-                  href={site.socials.email}
-                  className="text-sm text-fg/70"
-                >
+                <a href={site.socials.email} className="text-sm text-fg/70">
                   {site.email}
                 </a>
                 <div className="flex gap-5 text-xs uppercase tracking-[0.14em] text-muted">
-                  <a href={site.socials.github} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={site.socials.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     GitHub
                   </a>
-                  <a href={site.socials.linkedin} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={site.socials.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     LinkedIn
                   </a>
-                  <a href={site.resume} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={site.resume}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Résumé
                   </a>
                 </div>

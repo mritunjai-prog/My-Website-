@@ -79,6 +79,8 @@ html[data-theme="light"] {
     font-feature-settings: "ss01" 1, "cv11" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* `hidden` is the fallback for browsers without `clip`. */
+    overflow-x: hidden;
     overflow-x: clip;
     transition: background-color 0.5s ease, color 0.5s ease;
   }
@@ -214,7 +216,8 @@ html[data-theme="light"] {
     border-radius: 4px;
     padding: 0.95rem 1rem;
     color: var(--fg);
-    font-size: 0.95rem;
+    /* 16px keeps iOS Safari from zooming the page on focus. */
+    font-size: 1rem;
     transition: border-color 0.3s ease, background-color 0.3s ease;
   }
   .field::placeholder {

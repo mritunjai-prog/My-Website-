@@ -137,6 +137,7 @@ export function Stack() {
           <div
             ref={stageRef}
             className="orbit-stage relative mx-auto flex aspect-square w-full max-w-[460px] select-none items-center justify-center"
+            style={{ touchAction: "pan-y" }}
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={endDrag}

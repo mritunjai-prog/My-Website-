@@ -38,7 +38,7 @@ export function ThemeToggle() {
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
       aria-pressed={theme === "light"}
       data-cursor="grow"
-      className="group relative flex h-9 w-9 items-center justify-center rounded-full border border-line text-fg/70 transition-colors hover:border-fg/40 hover:text-fg"
+      className="group relative flex h-11 w-11 items-center justify-center rounded-full border border-line text-fg/70 transition-colors hover:border-fg/40 hover:text-fg md:h-9 md:w-9"
     >
       {mounted ? (
         theme === "dark" ? (

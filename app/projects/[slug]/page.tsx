@@ -97,7 +97,7 @@ export default async function ProjectPage({ params }: Params) {
                 {project.index} / {String(projects.length).padStart(2, "0")} ·{" "}
                 {project.year}
               </p>
-              <h1 className="mt-3 font-display text-[clamp(3rem,9vw,8rem)] leading-[0.85] tracking-tightest">
+              <h1 className="mt-3 font-display text-[clamp(2.5rem,9vw,8rem)] leading-[0.85] tracking-tightest">
                 {project.title}
               </h1>
               <p className="mt-4 max-w-xl text-lg text-muted md:text-xl">
