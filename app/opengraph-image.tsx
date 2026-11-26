@@ -28,41 +28,14 @@ export default async function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#05060a",
+          background:
+            "linear-gradient(118deg, #05060a 0%, #05060a 46%, #0b0f1c 66%, #121629 82%, #05060a 100%)",
           color: "#f2f2ec",
           padding: "56px 64px",
           position: "relative",
           fontFamily: "Inter",
         }}
       >
-        {/* Atmospheric fields */}
-        <div
-          style={{
-            position: "absolute",
-            top: -180,
-            right: -120,
-            width: 720,
-            height: 720,
-            borderRadius: 720,
-            background:
-              "linear-gradient(140deg, rgba(139,108,255,0.42), rgba(94,231,255,0.10) 55%, rgba(5,6,10,0) 80%)",
-            display: "flex",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: -240,
-            left: -140,
-            width: 660,
-            height: 660,
-            borderRadius: 660,
-            background:
-              "linear-gradient(20deg, rgba(217,255,63,0.22), rgba(5,6,10,0) 70%)",
-            display: "flex",
-          }}
-        />
-
         {/* Rings */}
         {[420, 540, 660].map((diameter, index) => (
           <div
