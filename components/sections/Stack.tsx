@@ -9,15 +9,22 @@ import { cn } from "@/lib/utils";
 
 const RADIUS = 168;
 
+/**
+ * Round to 0.001px. Trig results can differ in the last float digit between
+ * the Node SSR pass and the browser, which would otherwise produce a
+ * hydration mismatch on the inline `--x/--y/--z` custom properties.
+ */
+const snap = (value: number) => Math.round(value * 1000) / 1000;
+
 /** Fibonacci-sphere distribution keeps the nodes evenly spaced. */
 function spherePoints(count: number) {
   return Array.from({ length: count }, (_, i) => {
     const phi = Math.acos(1 - (2 * (i + 0.5)) / count);
     const theta = Math.PI * (1 + Math.sqrt(5)) * i;
     return {
-      x: Math.cos(theta) * Math.sin(phi) * RADIUS,
-      y: Math.cos(phi) * RADIUS,
-      z: Math.sin(theta) * Math.sin(phi) * RADIUS,
+      x: snap(Math.cos(theta) * Math.sin(phi) * RADIUS),
+      y: snap(Math.cos(phi) * RADIUS),
+      z: snap(Math.sin(theta) * Math.sin(phi) * RADIUS),
     };
   });
 }
