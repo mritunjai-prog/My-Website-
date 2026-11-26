@@ -94,7 +94,7 @@ export function Preloader() {
               </span>
               <span className="eyebrow text-fg/70">Mritunjai Singh</span>
             </div>
-            <span className="eyebrow hidden md:block">Portfolio — 2026</span>
+            <span className="eyebrow hidden md:block">Portfolio · 2026</span>
           </div>
 
           <div className="flex items-baseline justify-between gap-6">

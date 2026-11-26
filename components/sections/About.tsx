@@ -54,7 +54,7 @@ export function About() {
           index="02"
           label="About"
           title={"Systems that reason.\nInterfaces that explain."}
-          description="Building with models taught me the hard part is not the model — it is the pipeline, the evaluation and the human on the other side of the screen."
+          description="Building with models taught me that the hard part is never the model. It’s the pipeline, the evaluation, and the person waiting on the other side of the screen."
         />
 
         <div className="mt-16 grid gap-14 lg:grid-cols-12 lg:gap-16">
@@ -154,13 +154,13 @@ export function About() {
                 <p className="flex items-baseline justify-between gap-4">
                   <span className="text-fg/85">Vice President</span>
                   <span className="text-right text-xs text-muted">
-                    XeTech Club · Apr 2026 —
+                    XeTech Club · since Apr 2026
                   </span>
                 </p>
                 <p className="flex items-baseline justify-between gap-4">
                   <span className="text-fg/85">Product Intern</span>
                   <span className="text-right text-xs text-muted">
-                    Xebia · Jun–Jul 2026
+                    Xebia · Jun to Jul 2026
                   </span>
                 </p>
               </div>
@@ -170,23 +170,24 @@ export function About() {
           {/* Narrative */}
           <div className="lg:col-span-7">
             <ScrollText
-              text="A machine learning engineer and Python developer working across retrieval, computer vision and the full stack. I care about grounded answers, measured results and systems that someone can actually operate after the demo."
-              highlight={["retrieval", "measured", "operate"]}
+              text="I'm a machine learning engineer who likes the unglamorous parts: cleaning messy documents, comparing nineteen models when three might do, and making sure the thing still works once the demo is over."
+              highlight={["unglamorous", "nineteen"]}
               className="max-w-2xl font-display text-[clamp(1.4rem,2.4vw,2.1rem)] leading-[1.35] tracking-tight text-fg"
             />
 
             <div className="mt-10 grid gap-6 border-t border-line pt-8 sm:grid-cols-2">
               <p className="text-sm leading-relaxed text-muted">
-                I work end to end across machine learning and data science —
-                feature engineering, model comparison, evaluation and deployment
-                — and integrate computer vision with large language models to
-                solve real document and knowledge problems.
+                My work sits between data science and engineering. Feature
+                engineering, model comparison and evaluation come first. Then
+                deployment: FastAPI or Flask services, vector stores for
+                retrieval, and Docker when it has to run somewhere other than my
+                laptop.
               </p>
               <p className="text-sm leading-relaxed text-muted">
-                I build scalable Python backends with FastAPI and Flask, work
-                across relational, document and vector stores, and ship
-                React/TypeScript frontends — the layer where a model becomes
-                useful.
+                Most of my projects start with unstructured documents. I use
+                OpenCV and Hugging Face models to read them, LangChain and FAISS
+                to search them, and React when someone needs to see what the
+                model found.
               </p>
             </div>
 

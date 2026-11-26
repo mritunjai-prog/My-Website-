@@ -1,6 +1,6 @@
 /**
- * Work experience, leadership and recognition — sourced from the latest résumé
- * (Mritunjai_Singh_Python_DS_AIML.pdf).
+ * Work experience, leadership and recognition.
+ * Sourced from the latest résumé (Mritunjai_Singh_Python_DS_AIML.pdf).
  */
 
 export type WorkEntry = {
@@ -17,14 +17,14 @@ export const workExperience: WorkEntry[] = [
   {
     role: "Product Intern",
     company: "Xebia",
-    period: "Jun 2026 — Jul 2026",
+    period: "Jun 2026 to Jul 2026",
     location: "India",
     summary:
-      "Shipped production-facing products with a cross-functional team — product design, architecture and feature delivery, plus ownership of a six-person squad.",
+      "A summer inside a product team, shipping features across a React Native app and an enterprise LMS.",
     points: [
-      "Developed and delivered 3+ software products, including a React Native mobile application and an enterprise Learning Management System (LMS), contributing to product design, architecture and implementation.",
-      "Collaborated with UX/UI designers, QA engineers and stakeholders to gather requirements, conduct code reviews and apply best practices.",
-      "Led and coordinated a 6-member project team through the full software development lifecycle — task allocation, progress tracking and on-time milestone delivery.",
+      "Shipped 3+ products during the internship, including a React Native mobile app and an enterprise LMS, working on product design, architecture and implementation.",
+      "Worked directly with UX/UI designers, QA engineers and stakeholders on requirements, code reviews and delivery practices.",
+      "Led a 6-member team through the development lifecycle: task allocation, progress tracking and hitting milestones on time.",
     ],
     stack: [
       "React",
@@ -50,34 +50,34 @@ export const timeline: TimelineEntry[] = [
   {
     role: "General Secretary",
     org: "Student Council, SPSU",
-    period: "2025 — 2026",
+    period: "2025 to 2026",
     type: "Leadership",
     summary:
-      "Led the student council's operating rhythm — records, minutes, coordination and delivery across the institution.",
+      "Kept the council running: records, minutes, coordination and delivery across the institution.",
     points: [
       "Led 25+ student council initiatives and coordinated teams of 20+ members.",
-      "Delivered institutional events on time while keeping documentation and communication tight.",
+      "Got institutional events delivered on time without losing the documentation.",
     ],
   },
   {
     role: "Vice President",
     org: "XeTech Club, SPSU",
-    period: "Apr 2026 — Present",
+    period: "Apr 2026 to Present",
     type: "Chapter",
     summary:
-      "Run the club's technical calendar with the Xebia team — competitions, hackathons and hands-on workshops.",
+      "Run the club's technical calendar with the Xebia team: competitions, hackathons and hands-on workshops.",
     points: [
       "Organised design competitions, hackathons, workshops and treasure hunts under the Xebia team.",
       "Engaged 1,000+ students across events.",
     ],
   },
   {
-    role: "Winner — Xebia Promptathon",
+    role: "Winner, Xebia Promptathon",
     org: "Xebia",
     period: "Mar 2026",
     type: "Award",
     summary:
-      "Won the Xebia Promptathon by designing and shipping an AI-integrated software solution inside a 12-hour sprint.",
+      "Won the Xebia Promptathon by designing and shipping an AI-integrated product inside a 12-hour sprint.",
     points: [
       "Built an AI-integrated software solution in 12 hours with one teammate.",
       "Owned both the prompt architecture and the working prototype.",

@@ -9,10 +9,9 @@ export const site = {
   shortName: "MS",
   role: "AI/ML Engineer",
   discipline: "Python · Data Science · GenAI",
-  tagline:
-    "I build intelligent systems that turn unstructured data into decisions.",
+  tagline: "I turn messy documents into answers people can use.",
   intro:
-    "AI/ML engineer and Python developer working across Generative AI, RAG, NLP and computer vision — from feature engineering and model evaluation through to FastAPI/Flask services and the interfaces that make them usable.",
+    "AI/ML engineer and Python developer. I build retrieval systems and computer vision pipelines, then the APIs and interfaces that put them in front of real people.",
   location: "Hyderabad, India",
   timezone: "Asia/Kolkata",
   timezoneLabel: "IST",
@@ -21,7 +20,7 @@ export const site = {
   phoneHref: "tel:+919347147615",
   resume: "/Mritunjai_Singh_CV.pdf",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://my-website-pearl-gamma.vercel.app",
-  availability: "Open to AI/ML & Python engineering roles",
+  availability: "Open to AI/ML and Python engineering roles",
   socials: {
     github: "https://github.com/mritunjai-prog",
     linkedin: "https://www.linkedin.com/in/mritunjai-prog",
@@ -49,7 +48,7 @@ export const education = [
     degree: "B.Tech in Computer Science & Engineering",
     institution: "Sir Padampat Singhania University",
     location: "Udaipur, Rajasthan",
-    period: "Jul 2023 — Apr 2027",
+    period: "Jul 2023 to Apr 2027",
     score: "CGPA 8.5 / 10.0",
     focus: "Minor in AI/ML",
     highlights: [
@@ -71,17 +70,17 @@ export const certifications = [
 export const principles = [
   {
     index: "01",
-    title: "Retrieval over guesswork",
-    body: "Grounded answers beat confident hallucinations. I build RAG pipelines with clean chunking, vector search, LangChain orchestration and evaluation loops.",
+    title: "Grounded answers, not guesses",
+    body: "RAG is only as good as its retrieval. I spend time on chunking, embeddings and evaluation before I touch the prompt.",
   },
   {
     index: "02",
-    title: "Models need operators",
-    body: "A notebook is a hypothesis. I ship the pipeline, the FastAPI/Flask service, the dashboard and the deploy path that lets people actually use it.",
+    title: "Ship the whole thing",
+    body: "A model in a notebook helps nobody. I build the API, the dashboard and the deploy path around it.",
   },
   {
     index: "03",
-    title: "Interfaces that explain",
-    body: "Model output is only useful when a human can read it. I build the React and TypeScript front ends that make probabilistic systems legible.",
+    title: "Make the output readable",
+    body: "If a person can't see what the model did, the system fails. So I design the front end that shows it.",
   },
 ] as const;

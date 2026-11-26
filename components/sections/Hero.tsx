@@ -84,7 +84,7 @@ export function Hero() {
             <div className="mb-6 flex items-center gap-4">
               <span className="h-px w-12 bg-acid" />
               <span className="eyebrow text-fg/60">
-                {site.role} — {site.discipline}
+                {site.role} · {site.discipline}
               </span>
             </div>
 

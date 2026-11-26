@@ -49,10 +49,10 @@ export function Contact() {
         // Email provider not configured: hand off to the visitor's mail client.
         const mailto = `${site.socials.email}?subject=${encodeURIComponent(
           form.subject || `Portfolio enquiry from ${form.name}`,
-        )}&body=${encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`)}`;
+        )}&body=${encodeURIComponent(`${form.message}\n\nFrom ${form.name} (${form.email})`)}`;
         window.location.href = mailto;
         setStatus("success");
-        setFeedback("Opening your email client — the message is pre-filled.");
+        setFeedback("Opening your email client. The message is already filled in.");
       } else {
         setStatus("success");
         setFeedback("Message received. I usually reply within 48 hours.");
@@ -137,7 +137,7 @@ export function Contact() {
                   <span className="h-1.5 w-1.5 rounded-full bg-acid" />
                 </span>
                 <span className="text-sm text-fg/80">
-                  {time ?? "--:--:--"} {site.timezoneLabel}
+                  {time ?? "00:00:00"} {site.timezoneLabel}
                 </span>
                 <span className="ml-auto text-[0.65rem] uppercase tracking-[0.12em] text-muted">
                   Local time

@@ -37,13 +37,12 @@ export function Work() {
           <SectionHeading
             index="01"
             label="Selected work"
-            title={"Seven systems.\nOne obsession."}
+            title={"Seven builds.\nStill evolving."}
             className="flex-1"
           />
           <p className="max-w-sm text-sm leading-relaxed text-muted md:text-right">
-            From a RAG knowledge assistant and document intelligence to
-            dropout-risk modelling, decision tooling and cultural art
-            generation. Each case study is pulled directly from what was built.
+            Most of them start with documents. The first three are from my
+            latest résumé; the rest are earlier projects I still stand behind.
           </p>
         </div>
 
@@ -126,15 +125,6 @@ export function Work() {
                   <span className="flex h-9 w-9 items-center justify-center justify-self-end rounded-full border border-line text-muted transition-all duration-300 group-hover:border-acid group-hover:bg-acid group-hover:text-acid-ink">
                     <ArrowUpRight size={15} />
                   </span>
-                </div>
-
-                {/* Mobile artwork */}
-                <div className="mt-4 overflow-hidden border border-line md:hidden">
-                  <ProjectVisual
-                    project={project}
-                    variant="thumb"
-                    className="aspect-[16/9]"
-                  />
                 </div>
               </Link>
             ))}

@@ -12,7 +12,7 @@ export default function NotFound() {
           <span className="outline-text">SIGNAL</span>
         </h1>
         <p className="mt-6 max-w-md text-sm leading-relaxed text-muted">
-          This route does not exist — or it was retired with the old build. The
+          This route does not exist, or it was retired with the old build. The
           work, the stack and the contact form are all on the home page.
         </p>
         <Link

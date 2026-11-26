@@ -56,7 +56,7 @@ export function Journey() {
           index="04"
           label="Journey"
           title={"Rooms led.\nProducts shipped."}
-          description="A product internship at Xebia, student council leadership and a Promptathon win — the work that happens between lectures."
+          description="A product internship at Xebia, a student council term and a 12-hour Promptathon. This is the work that happened between lectures."
         />
 
         {/* Work experience */}
@@ -209,7 +209,7 @@ export function Journey() {
                           key={highlight}
                           className="text-xs leading-relaxed text-muted"
                         >
-                          — {highlight}
+                          · {highlight}
                         </li>
                       ))}
                     </ul>

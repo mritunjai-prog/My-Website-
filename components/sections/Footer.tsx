@@ -31,7 +31,7 @@ export function Footer() {
               {site.tagline}
             </p>
             <p className="mt-4 text-xs text-muted">
-              {time ?? "--:--:--"} {site.timezoneLabel} · {site.location}
+              {time ?? "00:00:00"} {site.timezoneLabel} · {site.location}
             </p>
           </div>
 
@@ -125,7 +125,7 @@ export function Footer() {
           </p>
           <p className="flex items-center gap-2">
             <span className="h-1 w-1 rounded-full bg-acid" />
-            Content sourced from my CV — updated 2026
+            Content sourced from my CV. Updated 2026
           </p>
         </div>
       </div>

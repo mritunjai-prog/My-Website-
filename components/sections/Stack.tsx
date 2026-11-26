@@ -128,8 +128,8 @@ export function Stack() {
         <SectionHeading
           index="03"
           label="Stack"
-          title={"Every layer of the pipeline,\nnot just the model."}
-          description={`${skillCount} tools across languages, modelling, retrieval, backend and interface work. Drag the cloud to explore.`}
+          title={"From raw text\nto shipped API."}
+          description={`${skillCount} tools I use, grouped by where they sit in the pipeline. Drag the cloud around.`}
         />
 
         <div className="mt-16 grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20">

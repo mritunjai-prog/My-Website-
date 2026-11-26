@@ -97,7 +97,7 @@ export async function POST(request: Request) {
           "Portfolio <onboarding@resend.dev>",
         to: [process.env.CONTACT_TO_EMAIL ?? site.email],
         reply_to: email,
-        subject: `Portfolio — ${subject || `Message from ${name}`}`,
+        subject: `Portfolio: ${subject || `Message from ${name}`}`,
         html: `
         <div style="font-family:Inter,system-ui,sans-serif;line-height:1.6;color:#0a0b0d">
           <p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6b7280">

@@ -17,11 +17,11 @@ const siteUrl = site.url;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Mritunjai Singh — AI/ML Engineer · Python · Data Science",
-    template: "%s — Mritunjai Singh",
+    default: "Mritunjai Singh · AI/ML Engineer · Python · Data Science",
+    template: "%s · Mritunjai Singh",
   },
   description:
-    "Portfolio of Mritunjai Singh — AI/ML engineer and Python developer working across Generative AI, RAG, NLP and computer vision. End-to-end ML systems, FastAPI/Flask backends and the interfaces that make them usable.",
+    "Portfolio of Mritunjai Singh, an AI/ML engineer and Python developer working across Generative AI, RAG, NLP and computer vision. End-to-end ML systems, FastAPI/Flask backends and the interfaces that make them usable.",
   keywords: [
     "Mritunjai Singh",
     "AI/ML Engineer",
@@ -51,15 +51,15 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: siteUrl,
     siteName: "Mritunjai Singh",
-    title: "Mritunjai Singh — AI/ML Engineer · Python · Data Science",
+    title: "Mritunjai Singh · AI/ML Engineer · Python · Data Science",
     description:
-      "GenAI, RAG, computer vision and data-science systems — built end to end, from model evaluation to production interfaces.",
+      "GenAI, RAG, computer vision and data-science systems, built end to end from model evaluation to production interfaces.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mritunjai Singh — AI/ML Engineer · Python · Data Science",
+    title: "Mritunjai Singh · AI/ML Engineer · Python · Data Science",
     description:
-      "GenAI, RAG, computer vision and data-science systems — built end to end, from model evaluation to production interfaces.",
+      "GenAI, RAG, computer vision and data-science systems, built end to end from model evaluation to production interfaces.",
     creator: "@mritunjai-prog",
   },
   robots: {

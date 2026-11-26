@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Project } from "@/content/projects";
 import { alpha, cn } from "@/lib/utils";
 
@@ -21,6 +22,27 @@ export function ProjectVisual({
   labelled = true,
 }: ProjectVisualProps) {
   const { accent, secondary, index, title, tags } = project;
+
+  // When a real screenshot exists, show it instead of the generated artwork.
+  if (project.cover) {
+    return (
+      <div
+        className={cn(
+          "relative isolate overflow-hidden bg-[#07080c]",
+          variant === "hero" ? "aspect-[16/10]" : "aspect-[4/3]",
+          className,
+        )}
+      >
+        <Image
+          src={project.cover}
+          alt=""
+          fill
+          sizes={variant === "hero" ? "100vw" : "(max-width: 768px) 100vw, 50vw"}
+          className="object-cover object-top"
+        />
+      </div>
+    );
+  }
 
   return (
     <div

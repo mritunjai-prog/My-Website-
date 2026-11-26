@@ -102,7 +102,7 @@ export function Nav() {
               }
             }}
             className="group flex items-center gap-3"
-            aria-label="Mritunjai Singh — back to top"
+            aria-label="Mritunjai Singh, back to top"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-sm bg-acid font-display text-[0.8rem] font-bold text-acid-ink transition-transform duration-500 group-hover:rotate-6">
               MS

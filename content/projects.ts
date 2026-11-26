@@ -16,7 +16,10 @@ export type Project = {
   role: string;
   githubUrl?: string;
   demoUrl?: string;
-  /** Visual identity for this project — used by the CSS/WebGL-free artwork. */
+  /** Real screenshot, if one exists (e.g. "/projects/knowflow.jpg"). */
+  cover?: string;
+  coverAlt?: string;
+  /** Visual identity used by the generated artwork. */
   accent: string;
   secondary: string;
   featured?: boolean;
@@ -28,9 +31,9 @@ export const projects: Project[] = [
     index: "01",
     title: "KnowFlow",
     subtitle: "AI Knowledge Assistant · RAG + Vision",
-    year: "2026 — Present",
+    year: "2026 to Present",
     summary:
-      "A knowledge assistant that reads documents with computer vision, tags them by topic and answers questions over the retrieval layer — with a dashboard and a knowledge-graph view.",
+      "A knowledge assistant that reads scanned documents with OpenCV, tags them by topic and answers questions over the retrieved text. The dashboard shows what it found and how the pieces connect.",
     highlights: [
       "Developing a RAG document pipeline using OpenCV, OCR, ML topic tagging and action-item detection.",
       "Implementing FAISS/Chroma retrieval with LLM-driven Q&A on a FastAPI + PostgreSQL backend.",
@@ -50,12 +53,12 @@ export const projects: Project[] = [
     subtitle: "Intelligent Document Processing",
     year: "2026",
     summary:
-      "An AI document-processing pipeline: Hugging Face transformers for extraction and classification, LangChain RAG for contextual Q&A, and Dockerised Python services behind it.",
+      "A document pipeline for the boring, high-stakes work: pulling structured fields out of scanned paperwork, classifying it, then answering questions over it with LangChain retrieval.",
     highlights: [
       "Processed 1,000+ documents with 92% structured data extraction accuracy.",
-      "Integrated Hugging Face transformer models for entity recognition, document classification and automated extraction.",
-      "Implemented LangChain-based RAG pipelines for contextual question answering using semantic search and vector retrieval.",
-      "Designed and deployed scalable Python backend services with Docker for ingestion, processing, retrieval and response generation.",
+      "Used Hugging Face transformer models for entity recognition, document classification and automated extraction.",
+      "Built LangChain-based RAG pipelines for contextual Q&A using semantic search and vector retrieval.",
+      "Deployed scalable Python services with Docker for ingestion, processing, retrieval and response generation.",
     ],
     tags: ["RAG", "LangChain", "Hugging Face", "FastAPI", "Docker"],
     role: "AI pipeline · Python backend",
@@ -72,12 +75,12 @@ export const projects: Project[] = [
     subtitle: "ML Student Risk Prediction",
     year: "2025",
     summary:
-      "A dropout-risk prediction system trained and compared across 19 models on 9,424 student records, wrapped in a Flask prediction API and a React analytics dashboard.",
+      "A dropout-risk model built on 9,424 student records. I trained 19 models, balanced the classes with SMOTE, and wrapped the best one in a Flask API and a React dashboard.",
     highlights: [
-      "Trained and compared 19 ML models — Random Forest, SVM and Logistic Regression — on 9,424 student records.",
+      "Trained and compared 19 models, including Random Forest, SVM and Logistic Regression, on 9,424 student records.",
       "Built an end-to-end pipeline with feature engineering and SMOTE class balancing, reaching 84% accuracy with an optimised Random Forest.",
-      "Shipped a Flask REST API for CSV batch predictions using Joblib-serialised models, returning risk classes and confidence scores.",
-      "Created a React/TypeScript analytics dashboard with interactive charts, student-level insights and intervention tracking.",
+      "Shipped a Flask REST API for CSV batch predictions, loading Joblib models and returning risk classes with confidence scores.",
+      "Created a React and TypeScript analytics dashboard with interactive charts, student-level insights and intervention tracking.",
     ],
     tags: ["Machine Learning", "Scikit-learn", "Flask", "React", "Analytics"],
     role: "ML Engineer & Data Scientist",
@@ -95,7 +98,7 @@ export const projects: Project[] = [
     subtitle: "GenAI Decision Intelligence Platform",
     year: "2026",
     summary:
-      "A decision-support platform that combines GenAI, analytics and visual reporting to surface trade-offs, SWOT insights and historical comparisons.",
+      "A decision-support tool that combines GenAI, analytics and visual reporting to show trade-offs, SWOT findings and how a past decision compares.",
     highlights: [
       "Used the OpenAI API via Supabase Edge Functions for decision analysis.",
       "Built a React 18, TypeScript and Tailwind CSS frontend with Chart.js visualisations.",
@@ -158,7 +161,7 @@ export const projects: Project[] = [
     subtitle: "Seat Allocation System",
     year: "2025",
     summary:
-      "An interactive seating management tool for large venues — manual seat assignment, search and data export across 1,000+ seats.",
+      "An interactive seating management tool for large venues: manual seat assignment, search and data export across 1,000+ seats.",
     highlights: [
       "Built an interactive seat allocation system for 1000+ seats.",
       "Implemented manual seat assignment functionality.",
