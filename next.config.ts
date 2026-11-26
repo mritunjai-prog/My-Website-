@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  // Allow the sandbox preview host to load dev assets / HMR.
+  allowedDevOrigins: ["*.e2b.app", "localhost:3000"],
   images: {
     qualities: [75, 82],
     formats: ["image/avif", "image/webp"],
