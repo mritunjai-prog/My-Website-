@@ -83,7 +83,7 @@ export const projects: Project[] = [
       "Created a React and TypeScript analytics dashboard with interactive charts, student-level insights and intervention tracking.",
     ],
     tags: ["Machine Learning", "Scikit-learn", "Flask", "React", "Analytics"],
-    role: "ML Engineer & Data Scientist",
+    role: "AI Engineer · Model evaluation",
     demoUrl: "https://mentoraid.netlify.app",
     githubUrl:
       "https://github.com/mritunjai-prog/MentorAid-AI-based-Student-drop-out-prediction-system",

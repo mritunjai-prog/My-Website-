@@ -1,6 +1,6 @@
 # Design system: “Signal in the Void”
 
-A quiet, cinematic portfolio for an AI/ML engineer. The 3D scene is a signal trying to resolve out of darkness; the typography is the instrument that reads it.
+A quiet, cinematic portfolio for an AI engineer. The 3D scene is a signal trying to resolve out of darkness; the typography is the instrument that reads it.
 
 ---
 
@@ -8,7 +8,7 @@ A quiet, cinematic portfolio for an AI/ML engineer. The 3D scene is a signal try
 
 Extracted from `Mritunjai_Singh_Python_DS_AIML.pdf` (latest, 2 pages) and the previous résumé/site. Everything on the site maps back to these facts.
 
-**Identity**: Mritunjai Singh, AI/ML Engineer | Python Developer | Data Scientist (GenAI · RAG · CV · NLP). Hyderabad, India. mritunjaisinghwork@gmail.com · +91 9347147615. GitHub `mritunjai-prog`, LinkedIn `mritunjai-prog`. Latest CV served at `/Mritunjai_Singh_CV.pdf`.
+**Identity**: Mritunjai Singh, AI Engineer | Python Developer (GenAI · RAG · CV · NLP). Hyderabad, India. mritunjaisinghwork@gmail.com · +91 9347147615. GitHub `mritunjai-prog`, LinkedIn `mritunjai-prog`. Latest CV served at `/Mritunjai_Singh_CV.pdf`.
 
 **Work experience**: Product Intern, Xebia (Jun 2026 – Jul 2026): 3+ products including a React Native app and an enterprise LMS; led a 6-member team. Stack: React, React Native, JavaScript, Java, Spring Boot, PostgreSQL.
 

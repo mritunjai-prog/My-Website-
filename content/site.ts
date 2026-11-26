@@ -7,11 +7,11 @@
 export const site = {
   name: "Mritunjai Singh",
   shortName: "MS",
-  role: "AI/ML Engineer",
-  discipline: "Python · Data Science · GenAI",
+  role: "AI Engineer",
+  discipline: "GenAI · RAG · Python",
   tagline: "I turn messy documents into answers people can use.",
   intro:
-    "AI/ML engineer and Python developer. I build retrieval systems and computer vision pipelines, then the APIs and interfaces that put them in front of real people.",
+    "AI engineer and Python developer. I build retrieval systems and computer vision pipelines, then the APIs and interfaces that put them in front of real people.",
   location: "Hyderabad, India",
   timezone: "Asia/Kolkata",
   timezoneLabel: "IST",
@@ -20,7 +20,7 @@ export const site = {
   phoneHref: "tel:+919347147615",
   resume: "/Mritunjai_Singh_CV.pdf",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://my-website-pearl-gamma.vercel.app",
-  availability: "Open to AI/ML and Python engineering roles",
+  availability: "Open to AI engineer and GenAI roles",
   socials: {
     github: "https://github.com/mritunjai-prog",
     linkedin: "https://www.linkedin.com/in/mritunjai-prog",

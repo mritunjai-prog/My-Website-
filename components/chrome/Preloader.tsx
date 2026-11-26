@@ -114,7 +114,7 @@ export function Preloader() {
               />
             </div>
             <span className="eyebrow whitespace-nowrap">
-              AI/ML · GenAI · RAG
+              AI Engineer · GenAI · RAG
             </span>
           </div>
         </motion.div>

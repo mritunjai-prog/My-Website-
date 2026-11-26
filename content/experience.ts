@@ -86,7 +86,7 @@ export const timeline: TimelineEntry[] = [
 ];
 
 export const marqueeItems = [
-  "AI/ML Engineer",
+  "AI Engineer",
   "Python Developer",
   "RAG Systems",
   "Computer Vision",

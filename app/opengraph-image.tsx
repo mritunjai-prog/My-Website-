@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const alt =
-  "Mritunjai Singh, AI/ML Engineer. Python, data science, GenAI and RAG systems.";
+  "Mritunjai Singh, AI Engineer. Generative AI, RAG, computer vision and Python systems.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -150,7 +150,7 @@ export default async function OpengraphImage() {
               display: "flex",
             }}
           >
-            AI/ML Engineer · Python · Data Science · GenAI, RAG and CV.
+            AI Engineer · GenAI, RAG and Computer Vision.
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 # Mritunjai Singh · Portfolio 2026
 
-An immersive, scroll-driven portfolio for an AI/ML engineer. Obsidian base, acid-lime signal, a WebGL core that reacts to the pointer, and typography that does the heavy lifting.
+An immersive, scroll-driven portfolio for an AI engineer. Obsidian base, acid-lime signal, a WebGL core that reacts to the pointer, and typography that does the heavy lifting.
 
 **Live:** https://my-website-pearl-gamma.vercel.app
 

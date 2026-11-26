@@ -170,18 +170,17 @@ export function About() {
           {/* Narrative */}
           <div className="lg:col-span-7">
             <ScrollText
-              text="I'm a machine learning engineer who likes the unglamorous parts: cleaning messy documents, comparing nineteen models when three might do, and making sure the thing still works once the demo is over."
+              text="I'm an AI engineer who likes the unglamorous parts: cleaning messy documents, comparing nineteen models when three might do, and making sure the thing still works once the demo is over."
               highlight={["unglamorous", "nineteen"]}
               className="max-w-2xl font-display text-[clamp(1.4rem,2.4vw,2.1rem)] leading-[1.35] tracking-tight text-fg"
             />
 
             <div className="mt-10 grid gap-6 border-t border-line pt-8 sm:grid-cols-2">
               <p className="text-sm leading-relaxed text-muted">
-                My work sits between data science and engineering. Feature
-                engineering, model comparison and evaluation come first. Then
-                deployment: FastAPI or Flask services, vector stores for
-                retrieval, and Docker when it has to run somewhere other than my
-                laptop.
+                I work end to end on applied AI. Feature engineering, model
+                comparison and evaluation come first. Then deployment: FastAPI
+                or Flask services, vector stores for retrieval, and Docker when
+                it has to run somewhere other than my laptop.
               </p>
               <p className="text-sm leading-relaxed text-muted">
                 Most of my projects start with unstructured documents. I use
