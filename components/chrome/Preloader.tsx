@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useSmoothScroll } from "@/components/providers/SmoothScroll";
 
 /**
  * Boot sequence: a percentage counter against a curtain, then a wipe that
@@ -13,6 +14,7 @@ export function Preloader() {
   const [done, setDone] = useState(false);
   const [count, setCount] = useState(0);
   const frame = useRef<number | null>(null);
+  const { start } = useSmoothScroll();
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -23,6 +25,8 @@ export function Preloader() {
       document.documentElement.dataset.ready = "true";
       window.dispatchEvent(new Event("app:ready"));
       sessionStorage.setItem("ms:visited", "1");
+      delete document.documentElement.dataset.loading;
+      start();
       window.setTimeout(() => setVisible(false), 950);
     };
 
@@ -33,12 +37,13 @@ export function Preloader() {
       return;
     }
 
+    document.documentElement.dataset.loading = "true";
     document.documentElement.style.overflow = "hidden";
-    const start = performance.now();
+    const origin = performance.now();
     const duration = 1650;
 
     const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / duration);
+      const t = Math.min(1, (now - origin) / duration);
       // ease-out so the counter decelerates into 100
       setCount(Math.round((1 - Math.pow(1 - t, 3)) * 100));
       if (t < 1) {
@@ -62,8 +67,9 @@ export function Preloader() {
       window.removeEventListener("keydown", skip);
       window.removeEventListener("pointerdown", skip);
       document.documentElement.style.overflow = "";
+      delete document.documentElement.dataset.loading;
     };
-  }, []);
+  }, [start]);
 
   // Release scroll once the curtain starts lifting.
   useEffect(() => {

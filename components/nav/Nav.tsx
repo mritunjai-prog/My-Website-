@@ -4,7 +4,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ThemeToggle } from "@/components/chrome/ThemeToggle";
 import { useSmoothScroll } from "@/components/providers/SmoothScroll";
 import { navLinks, site } from "@/content/site";
@@ -16,6 +16,7 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("#top");
+  const firstPass = useRef(true);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -45,6 +46,12 @@ export function Nav() {
   }, []);
 
   useEffect(() => {
+    // Don't undo the preloader's scroll lock on the very first render.
+    if (firstPass.current) {
+      firstPass.current = false;
+      if (!open) return;
+    }
+
     if (open) {
       stop();
       document.documentElement.style.overflow = "hidden";

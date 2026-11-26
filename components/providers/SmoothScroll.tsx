@@ -56,6 +56,9 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     });
     lenisRef.current = lenis;
 
+    // Hold the page still while the preloader is on screen.
+    if (document.documentElement.dataset.loading === "true") lenis.stop();
+
     const onScroll = () => ScrollTrigger.update();
     lenis.on("scroll", onScroll);
 
