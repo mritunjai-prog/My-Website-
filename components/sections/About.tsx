@@ -12,7 +12,8 @@ import { site, stats, principles } from "@/content/site";
 export function About() {
   const portraitRef = useRef<HTMLDivElement>(null);
 
-  // Gentle parallax on the portrait, scrubbed against the section.
+  // Gentle inner parallax: the photo drifts inside the circular crop while the
+  // circle itself stays anchored (no square edges, no layout shift).
   useEffect(() => {
     const el = portraitRef.current;
     if (!el) return;
@@ -20,11 +21,18 @@ export function About() {
 
     registerGsap();
     const ctx = gsap.context(() => {
+      const image = el.querySelector("img");
+      if (!image) return;
+
+      // Scale is owned by GSAP (not a utility class) so its transform writes
+      // never strip the zoom and expose the crop's edges.
+      gsap.set(image, { scale: 1.16 });
+
       gsap.fromTo(
-        el,
-        { yPercent: -4 },
+        image,
+        { yPercent: -5 },
         {
-          yPercent: 6,
+          yPercent: 5,
           ease: "none",
           scrollTrigger: {
             trigger: el,
@@ -53,37 +61,80 @@ export function About() {
           {/* Portrait + stats */}
           <div className="lg:col-span-5">
             <Reveal className="relative">
-              <div
-                ref={portraitRef}
-                className="group relative aspect-[4/5] overflow-hidden border border-line bg-panel"
-              >
-                <Image
-                  src="/profile.jpg"
-                  alt="Portrait of Mritunjai Singh"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  quality={82}
-                  className="object-cover object-[center_22%] grayscale-[35%] contrast-[1.05] transition-all duration-[900ms] ease-out-expo group-hover:scale-[1.03] group-hover:grayscale-0"
+              <div className="relative mx-auto aspect-square w-full max-w-[430px]">
+                {/* Orbit rings — fully round, never clipped */}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -inset-5 rounded-full border border-line/50"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg via-bg/10 to-transparent opacity-80" />
-                <div className="pointer-events-none absolute inset-0 mix-blend-color bg-[radial-gradient(120%_100%_at_20%_0%,rgba(217,255,63,0.28),transparent_60%)]" />
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -inset-2 rounded-full border border-dashed border-line/80 [animation:spin_70s_linear_infinite]"
+                />
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -inset-6 rounded-full bg-[radial-gradient(circle_at_40%_35%,rgba(217,255,63,0.30),rgba(139,108,255,0.22)_45%,transparent_70%)] opacity-70 blur-3xl"
+                />
 
-                <div className="absolute inset-x-4 bottom-4 flex items-end justify-between gap-3">
-                  <div>
+                {/* The crop: circular, overflow hidden, ring on the outside */}
+                <div className="group absolute inset-0 overflow-hidden rounded-full bg-panel shadow-[0_40px_90px_-40px_rgba(0,0,0,0.9)] ring-1 ring-line">
+                  <div ref={portraitRef} className="absolute inset-0 overflow-hidden rounded-full">
+                    <Image
+                      src="/profile.jpg"
+                      alt="Portrait of Mritunjai Singh"
+                      fill
+                      sizes="(max-width: 1024px) 80vw, 430px"
+                      quality={82}
+                      className="object-cover object-[center_25%] grayscale-[35%] contrast-[1.05] transition-[filter] duration-700 ease-out-expo group-hover:grayscale-0"
+                    />
+                  </div>
+
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-bg/85 via-bg/5 to-transparent"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 rounded-full mix-blend-color bg-[radial-gradient(120%_100%_at_20%_0%,rgba(217,255,63,0.30),transparent_62%)]"
+                  />
+
+                  {/* Inner caption, kept clear of the curved edge */}
+                  <div className="absolute inset-x-14 bottom-8 flex flex-col items-center text-center">
                     <p className="eyebrow text-acid">{site.role}</p>
-                    <p className="font-display text-lg tracking-tight">
+                    <p className="mt-1 font-display text-base tracking-tight text-white/90">
                       {site.location}
                     </p>
                   </div>
-                  <span className="pill border-white/25 bg-black/20 text-white/80 backdrop-blur-md">
-                    <span className="h-1.5 w-1.5 rounded-full bg-acid" />
-                    Available
-                  </span>
                 </div>
+
+                {/* Availability badge */}
+                <span className="pill absolute -bottom-2 left-1/2 -translate-x-1/2 border-line bg-bg/90 text-fg/80 backdrop-blur-md">
+                  <span className="h-1.5 w-1.5 rounded-full bg-acid" />
+                  Available
+                </span>
+
+                {/* Accent arc */}
+                <svg
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 h-full w-full -rotate-90"
+                  viewBox="0 0 100 100"
+                >
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="49"
+                    fill="none"
+                    stroke="var(--acid)"
+                    strokeOpacity="0.55"
+                    strokeWidth="0.4"
+                    strokeDasharray="14 86"
+                    strokeLinecap="round"
+                  />
+                </svg>
               </div>
             </Reveal>
 
-            <Reveal className="mt-6 grid grid-cols-2 gap-px border border-line bg-line">
+            <Reveal className="mt-8 grid grid-cols-2 gap-px border border-line bg-line">
               {stats.map((stat) => (
                 <div key={stat.label} className="bg-bg p-5">
                   <p className="font-display text-2xl tracking-tight md:text-3xl">
@@ -96,28 +147,46 @@ export function About() {
                 </div>
               ))}
             </Reveal>
+
+            <Reveal className="mt-6 border-t border-line pt-5">
+              <p className="eyebrow text-muted">Now</p>
+              <div className="mt-3 space-y-2.5 text-sm">
+                <p className="flex items-baseline justify-between gap-4">
+                  <span className="text-fg/85">Vice President</span>
+                  <span className="text-right text-xs text-muted">
+                    XeTech Club · Apr 2026 —
+                  </span>
+                </p>
+                <p className="flex items-baseline justify-between gap-4">
+                  <span className="text-fg/85">Product Intern</span>
+                  <span className="text-right text-xs text-muted">
+                    Xebia · Jun–Jul 2026
+                  </span>
+                </p>
+              </div>
+            </Reveal>
           </div>
 
           {/* Narrative */}
           <div className="lg:col-span-7">
             <ScrollText
-              text="A machine learning engineer working across retrieval, NLP and the full stack. I care about grounded answers, measured results and systems that someone can actually operate after the demo."
+              text="A machine learning engineer and Python developer working across retrieval, computer vision and the full stack. I care about grounded answers, measured results and systems that someone can actually operate after the demo."
               highlight={["retrieval", "measured", "operate"]}
               className="max-w-2xl font-display text-[clamp(1.4rem,2.4vw,2.1rem)] leading-[1.35] tracking-tight text-fg"
             />
 
             <div className="mt-10 grid gap-6 border-t border-line pt-8 sm:grid-cols-2">
               <p className="text-sm leading-relaxed text-muted">
-                I specialise in Generative AI, NLP and Retrieval-Augmented
-                Generation — building end-to-end intelligent systems, deploying
-                scalable ML pipelines and developing data-driven platforms with
-                modern full-stack technologies.
+                I work end to end across machine learning and data science —
+                feature engineering, model comparison, evaluation and deployment
+                — and integrate computer vision with large language models to
+                solve real document and knowledge problems.
               </p>
               <p className="text-sm leading-relaxed text-muted">
-                Highly proficient in Java with solid experience in Python,
-                machine learning algorithms and model optimisation. I also build
-                frontends in React, TypeScript and Tailwind — the layer where a
-                model becomes useful.
+                I build scalable Python backends with FastAPI and Flask, work
+                across relational, document and vector stores, and ship
+                React/TypeScript frontends — the layer where a model becomes
+                useful.
               </p>
             </div>
 

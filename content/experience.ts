@@ -1,13 +1,47 @@
 /**
- * Leadership and experience — sourced from the CV's
- * "Leadership and Experience" section and the previous site.
+ * Work experience, leadership and recognition — sourced from the latest résumé
+ * (Mritunjai_Singh_Python_DS_AIML.pdf).
  */
+
+export type WorkEntry = {
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  summary: string;
+  points: string[];
+  stack: string[];
+};
+
+export const workExperience: WorkEntry[] = [
+  {
+    role: "Product Intern",
+    company: "Xebia",
+    period: "Jun 2026 — Jul 2026",
+    location: "India",
+    summary:
+      "Shipped production-facing products with a cross-functional team — product design, architecture and feature delivery, plus ownership of a six-person squad.",
+    points: [
+      "Developed and delivered 3+ software products, including a React Native mobile application and an enterprise Learning Management System (LMS), contributing to product design, architecture and implementation.",
+      "Collaborated with UX/UI designers, QA engineers and stakeholders to gather requirements, conduct code reviews and apply best practices.",
+      "Led and coordinated a 6-member project team through the full software development lifecycle — task allocation, progress tracking and on-time milestone delivery.",
+    ],
+    stack: [
+      "React",
+      "React Native",
+      "JavaScript",
+      "Java",
+      "Spring Boot",
+      "PostgreSQL",
+    ],
+  },
+];
 
 export type TimelineEntry = {
   role: string;
   org: string;
   period: string;
-  type: "Leadership" | "Community" | "Chapter";
+  type: "Leadership" | "Chapter" | "Award";
   summary: string;
   points: string[];
 };
@@ -15,61 +49,49 @@ export type TimelineEntry = {
 export const timeline: TimelineEntry[] = [
   {
     role: "General Secretary",
-    org: "Students' Council, SPSU",
+    org: "Student Council, SPSU",
     period: "2025 — 2026",
     type: "Leadership",
     summary:
-      "Maintain all official records, minutes and council documentation while keeping decisions moving through the student body.",
+      "Led the student council's operating rhythm — records, minutes, coordination and delivery across the institution.",
     points: [
-      "Led 10+ student council initiatives and streamlined coordination processes.",
-      "Improved execution efficiency through structured planning.",
+      "Led 25+ student council initiatives and coordinated teams of 20+ members.",
+      "Delivered institutional events on time while keeping documentation and communication tight.",
     ],
   },
   {
     role: "Vice President",
-    org: "Xe-Tech Student Chapter, SPSU",
+    org: "XeTech Club, SPSU",
     period: "Apr 2026 — Present",
     type: "Chapter",
     summary:
-      "Plan and run technical events with the student body, and push a stronger tech culture through competitive programming.",
+      "Run the club's technical calendar with the Xebia team — competitions, hackathons and hands-on workshops.",
     points: [
-      "Managing and planning technical events in collaboration with the student body.",
-      "Promoting technical competitions and fostering a strong tech culture across campus.",
+      "Organised design competitions, hackathons, workshops and treasure hunts under the Xebia team.",
+      "Engaged 1,000+ students across events.",
     ],
   },
   {
-    role: "Sports Secretary",
-    org: "Students' Council, SPSU",
-    period: "2024 — 2025",
-    type: "Leadership",
+    role: "Winner — Xebia Promptathon",
+    org: "Xebia",
+    period: "Mar 2026",
+    type: "Award",
     summary:
-      "Led the sports board, coordinated every sports club and ran inter- and intra-college tournaments.",
+      "Won the Xebia Promptathon by designing and shipping an AI-integrated software solution inside a 12-hour sprint.",
     points: [
-      "Managed sports equipment and coordinated club schedules.",
-      "Promoted a campus-wide fitness culture through recurring tournaments.",
-    ],
-  },
-  {
-    role: "Core Coordinator",
-    org: "LeetLegion Coding Club",
-    period: "2024 — 2025",
-    type: "Community",
-    summary:
-      "Ran coding challenges and technical sessions, and mentored students through problem solving.",
-    points: [
-      "Organized coding contests and workshops for 100+ students.",
-      "Increased engagement through structured learning sessions.",
+      "Built an AI-integrated software solution in 12 hours with one teammate.",
+      "Owned both the prompt architecture and the working prototype.",
     ],
   },
 ];
 
 export const marqueeItems = [
   "AI/ML Engineer",
+  "Python Developer",
   "RAG Systems",
-  "NLP",
-  "Generative AI",
-  "Python",
-  "React",
+  "Computer Vision",
+  "Data Science",
   "FastAPI",
+  "React Native",
   "Hyderabad, IN",
 ];

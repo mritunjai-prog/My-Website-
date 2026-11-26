@@ -37,13 +37,13 @@ export function Work() {
           <SectionHeading
             index="01"
             label="Selected work"
-            title={"Six systems.\nOne obsession."}
+            title={"Seven systems.\nOne obsession."}
             className="flex-1"
           />
           <p className="max-w-sm text-sm leading-relaxed text-muted md:text-right">
-            From document intelligence and decision platforms to student-risk
-            modelling and cultural art tooling. Each case study is pulled
-            directly from what was built.
+            From a RAG knowledge assistant and document intelligence to
+            dropout-risk modelling, decision tooling and cultural art
+            generation. Each case study is pulled directly from what was built.
           </p>
         </div>
 

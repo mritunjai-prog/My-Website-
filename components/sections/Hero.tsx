@@ -184,14 +184,12 @@ export function Hero() {
           <div className="hidden items-center gap-8 sm:flex">
             <div className="text-right">
               <p className="eyebrow text-fg/60">Currently</p>
-              <p className="text-xs text-fg/70">
-                Gen. Secretary · SPSU ’25–26
-              </p>
+              <p className="text-xs text-fg/70">VP · XeTech Club</p>
             </div>
             <div className="h-8 w-px bg-line" />
             <div className="text-right">
-              <p className="eyebrow text-fg/60">Focus</p>
-              <p className="text-xs text-fg/70">GenAI · RAG · NLP</p>
+              <p className="eyebrow text-fg/60">Recently</p>
+              <p className="text-xs text-fg/70">Product Intern @ Xebia</p>
             </div>
           </div>
         </div>

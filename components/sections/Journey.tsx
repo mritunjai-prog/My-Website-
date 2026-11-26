@@ -1,13 +1,18 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { ArrowUpRight, Award, GraduationCap } from "lucide-react";
+import {
+  ArrowUpRight,
+  Award,
+  Briefcase,
+  GraduationCap,
+  Trophy,
+} from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { gsap, registerGsap } from "@/lib/gsap";
-import { timeline } from "@/content/experience";
+import { timeline, workExperience } from "@/content/experience";
 import { certifications, education, site } from "@/content/site";
-import { cn } from "@/lib/utils";
 
 export function Journey() {
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -50,60 +55,121 @@ export function Journey() {
         <SectionHeading
           index="04"
           label="Journey"
-          title={"Rooms led.\nSystems shipped."}
-          description="Student council, technical chapters and coding communities — the work that happens between lectures."
+          title={"Rooms led.\nProducts shipped."}
+          description="A product internship at Xebia, student council leadership and a Promptathon win — the work that happens between lectures."
         />
 
-        {/* Timeline */}
-        <div ref={timelineRef} className="relative mt-16 md:pl-8">
-          <span className="absolute left-0 top-2 hidden h-[calc(100%-1rem)] w-px bg-line md:block">
-            <span
-              ref={lineRef}
-              className="block h-full w-px origin-top bg-acid"
-              style={{ transform: "scaleY(0)" }}
-            />
-          </span>
+        {/* Work experience */}
+        <div className="mt-16">
+          <div className="flex items-center gap-3 pb-6">
+            <Briefcase size={16} className="text-accent" />
+            <h3 className="eyebrow text-fg/70">Work experience</h3>
+            <span className="h-px flex-1 bg-line" />
+          </div>
 
-          <div className="space-y-0">
-            {timeline.map((entry, index) => (
-              <Reveal key={`${entry.role}-${entry.org}`} delay={index * 0.04}>
-                <article className="group relative grid gap-4 border-b border-line py-8 md:grid-cols-[9rem_1fr] md:gap-10 md:py-10">
-                  <span className="absolute -left-8 top-12 hidden h-2 w-2 -translate-x-1/2 rounded-full border border-acid bg-bg transition-colors duration-300 group-hover:bg-acid md:block" />
+          {workExperience.map((job, index) => (
+            <Reveal key={`${job.company}-${job.role}`} delay={index * 0.05}>
+              <article className="group grid gap-7 border border-line bg-panel/40 p-6 transition-colors hover:border-fg/25 md:grid-cols-[15rem_1fr] md:gap-10 md:p-8">
+                <div>
+                  <p className="eyebrow text-accent">{job.period}</p>
+                  <h4 className="mt-2 font-display text-2xl tracking-tight md:text-[1.7rem]">
+                    {job.role}
+                  </h4>
+                  <p className="mt-1 text-sm text-fg/75">
+                    {job.company} · {job.location}
+                  </p>
 
-                  <div className="flex items-center gap-3 md:flex-col md:items-start md:gap-2">
-                    <span className="eyebrow text-muted">{entry.period}</span>
-                    <span className="hidden text-[0.6rem] uppercase tracking-[0.16em] text-accent/80 md:inline">
-                      {entry.type}
-                    </span>
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {job.stack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full border border-line px-2.5 py-1 text-[0.62rem] uppercase tracking-[0.1em] text-muted"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
+                </div>
 
-                  <div>
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <h3 className="font-display text-xl tracking-tight transition-colors group-hover:text-accent md:text-2xl">
-                        {entry.role}
-                      </h3>
-                      <span className="text-sm text-muted">{entry.org}</span>
+                <div>
+                  <p className="max-w-xl text-sm leading-relaxed text-muted">
+                    {job.summary}
+                  </p>
+                  <ul className="mt-5 space-y-3 border-t border-line pt-5">
+                    {job.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex gap-3 text-[0.85rem] leading-relaxed text-fg/80"
+                      >
+                        <span className="mt-[0.5rem] h-1 w-1 shrink-0 rounded-full bg-accent" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Leadership & recognition */}
+        <div className="mt-20">
+          <div className="flex items-center gap-3 pb-6">
+            <Trophy size={16} className="text-accent" />
+            <h3 className="eyebrow text-fg/70">Leadership & recognition</h3>
+            <span className="h-px flex-1 bg-line" />
+          </div>
+
+          <div ref={timelineRef} className="relative md:pl-8">
+            <span className="absolute left-0 top-2 hidden h-[calc(100%-1rem)] w-px bg-line md:block">
+              <span
+                ref={lineRef}
+                className="block h-full w-px origin-top bg-acid"
+                style={{ transform: "scaleY(0)" }}
+              />
+            </span>
+
+            <div className="space-y-0">
+              {timeline.map((entry, index) => (
+                <Reveal key={`${entry.role}-${entry.org}`} delay={index * 0.04}>
+                  <article className="group relative grid gap-4 border-b border-line py-8 md:grid-cols-[9rem_1fr] md:gap-10 md:py-10">
+                    <span className="absolute -left-8 top-12 hidden h-2 w-2 -translate-x-1/2 rounded-full border border-acid bg-bg transition-colors duration-300 group-hover:bg-acid md:block" />
+
+                    <div className="flex items-center gap-3 md:flex-col md:items-start md:gap-2">
+                      <span className="eyebrow text-muted">{entry.period}</span>
+                      <span className="hidden text-[0.6rem] uppercase tracking-[0.16em] text-accent/80 md:inline">
+                        {entry.type}
+                      </span>
                     </div>
 
-                    <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
-                      {entry.summary}
-                    </p>
+                    <div>
+                      <div className="flex flex-wrap items-baseline justify-between gap-2">
+                        <h3 className="font-display text-xl tracking-tight transition-colors group-hover:text-accent md:text-2xl">
+                          {entry.role}
+                        </h3>
+                        <span className="text-sm text-muted">{entry.org}</span>
+                      </div>
 
-                    <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                      {entry.points.map((point) => (
-                        <li
-                          key={point}
-                          className="flex gap-2.5 text-[0.8rem] leading-relaxed text-fg/70"
-                        >
-                          <span className="mt-[0.45rem] h-1 w-1 shrink-0 rounded-full bg-accent" />
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+                      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
+                        {entry.summary}
+                      </p>
+
+                      <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                        {entry.points.map((point) => (
+                          <li
+                            key={point}
+                            className="flex gap-2.5 text-[0.8rem] leading-relaxed text-fg/70"
+                          >
+                            <span className="mt-[0.45rem] h-1 w-1 shrink-0 rounded-full bg-accent" />
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -128,7 +194,7 @@ export function Journey() {
                       </h4>
                       <p className="mt-1 text-sm text-fg/70">{item.institution}</p>
                       <p className="text-xs text-muted">
-                        {item.location} · {item.period}
+                        {item.location} · {item.period} · {item.focus}
                       </p>
                     </div>
                     <span className="rounded-full border border-acid/30 bg-acid/10 px-3 py-1 text-[0.65rem] uppercase tracking-[0.12em] text-accent">
@@ -163,9 +229,7 @@ export function Journey() {
               {certifications.map((cert, index) => (
                 <div
                   key={cert.title}
-                  className={cn(
-                    "group flex items-center justify-between gap-4 border-b border-line py-3.5",
-                  )}
+                  className="group flex items-center justify-between gap-4 border-b border-line py-3.5"
                 >
                   <div className="flex items-baseline gap-4">
                     <span className="text-[0.6rem] tabular-nums text-muted">

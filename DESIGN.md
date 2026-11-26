@@ -6,19 +6,21 @@ A quiet, cinematic portfolio for an AI/ML engineer. The 3D scene is a signal try
 
 ## 1 · Content audit (step 1)
 
-Extracted from `Mritunjai_Singh_s_CV.pdf` (2 pages) and the previous Vite site. Everything on the new site maps back to these facts.
+Extracted from `Mritunjai_Singh_Python_DS_AIML.pdf` (latest, 2 pages) and the previous résumé/site. Everything on the site maps back to these facts.
 
-**Identity** — Mritunjai Singh, AI/ML Engineer (GenAI · RAG · NLP). Hyderabad, India. mritunjaisinghwork@gmail.com · +91 9347147615. GitHub `mritunjai-prog`, LinkedIn `mritunjai-prog`. CV PDF kept and served at `/Mritunjai_Singh_CV.pdf`.
+**Identity** — Mritunjai Singh, AI/ML Engineer | Python Developer | Data Scientist (GenAI · RAG · CV · NLP). Hyderabad, India. mritunjaisinghwork@gmail.com · +91 9347147615. GitHub `mritunjai-prog`, LinkedIn `mritunjai-prog`. Latest CV served at `/Mritunjai_Singh_CV.pdf`.
 
-**Education** — B.Tech CSE, Sir Padampat Singhania University (Udaipur), Jul 2023 – Jul 2027, CGPA 8.5/10. Class XII, Kendriya Vidyalaya Bowenpally (Hyderabad), 2023.
+**Work experience** — Product Intern, Xebia (Jun 2026 – Jul 2026): 3+ products including a React Native app and an enterprise LMS; led a 6-member team. Stack: React, React Native, JavaScript, Java, Spring Boot, PostgreSQL.
 
-**Projects (6)** — DocuMind, StratosAI, MentorAid, DocentDesk, KolamCraft, Amphitheatre Booking. Copy, metrics and URLs unchanged from the CV / previous site.
+**Education** — B.Tech CSE (Minor: AI/ML), Sir Padampat Singhania University (Udaipur), Jul 2023 – Apr 2027, CGPA 8.5/10. Focus: DSA, data visualisation, AI/ML, OS.
 
-**Leadership (4)** — General Secretary (Students' Council, SPSU 2025–26), Vice President (Xe-Tech Student Chapter, Apr 2026–), Sports Secretary (2024–25), Core Coordinator (LeetLegion).
+**Projects (7)** — KnowFlow, DocuMind and MentorAid from the latest résumé (92% extraction, 19 models on 9,424 records / 84% accuracy), plus earlier builds StratosAI, DocentDesk, KolamCraft and Amphitheatre. Copy, metrics and URLs unchanged from the CV / live repos.
 
-**Certifications (6)** — Azure Fundamentals, Microsoft Responsible Generative AI, NPTEL Elite Java, Cisco Python Essentials 1 & 2, HackerRank Java, HackerRank Python.
+**Leadership & recognition (3)** — General Secretary (Student Council, SPSU 2025–26, 25+ initiatives), Vice President (XeTech Club, Apr 2026 –, 1,000+ students engaged), Winner — Xebia Promptathon (Mar 2026).
 
-**Skills** — Languages, ML, GenAI/NLP, frontend, backend/data, tooling — 33 entries total, all sourced.
+**Certifications (6)** — Microsoft 365 & AI Administration, Azure Administrator, Azure SQL, Azure Fundamentals, Responsible Generative AI, NPTEL Elite Java.
+
+**Skills** — Languages, Python backend, databases & retrieval, ML, data science, GenAI/NLP, tools — 48 entries total, all sourced.
 
 **Removed with the old build** — the unlinked Supabase blog, `/login`, and the Express API (its contact-form behaviour is now a Next route handler). Legacy URLs redirect to `/`.
 
@@ -68,7 +70,7 @@ Project artwork carries its own accent (lime, iris, cyan, orange, pink, green) s
 | 02 | **Work** | Oversized index rows. Hover/focus: floating generative preview springs toward the cursor, row titles shift to acid, siblings dim. Click → route transition into the case study. Mobile gets inline artwork. |
 | 03 | **About** | Scroll-scrubbed manifesto (words rise 18% → 100% opacity). Portrait has a slow parallax and duotone-to-colour hover. Stats grid and principle rows stagger in. |
 | 04 | **Stack** | Draggable CSS-3D sphere of 22 technologies: Fibonacci distribution, per-node depth opacity/scale, auto-rotation that pauses on drag. Category filters rebuild the sphere; rows expand with grid-row transitions. |
-| 05 | **Journey** | Timeline spine draws itself with scroll (scaleY scrub), entries and education/certification blocks reveal in sequence. |
+| 05 | **Journey** | Work-experience card for the Xebia internship, then a timeline spine that draws itself with scroll (scaleY scrub); leadership, education and certification blocks reveal in sequence. |
 | 06 | **Contact** | Split-text headline, serif accent, magnetic submit, live IST clock, inline validation, `aria-live` status. |
 | — | **Global** | Lenis smooth scroll driven by the GSAP ticker, ScrollTrigger on all reveals, custom two-part cursor with “View / Case study” states, grain overlay, 1px progress bar, theme flip. |
 

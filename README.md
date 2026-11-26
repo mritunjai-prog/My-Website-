@@ -24,7 +24,7 @@ An immersive, scroll-driven portfolio for an AI/ML engineer. Obsidian base, acid
 
 - **Signal core hero** — a shader-displaced icosahedron, particle field, wireframe cage and orbital rings; camera responds to pointer and scroll.
 - **Scroll choreography** — masked split-text reveals, scrubbed word-by-word manifesto, timeline spine that draws itself, magnetic buttons, page transitions.
-- **Project index** — oversized rows with a pointer-following generative preview and 3D tilt. Each project has a case-study route at `/projects/[slug]`.
+- **Experience + project index** — the Xebia product internship, leadership timeline, and oversized project rows with a pointer-following generative preview and 3D tilt. Each project has a case-study route at `/projects/[slug]`.
 - **3D skill cloud** — a draggable CSS-3D orbit of 22 technologies with live depth cues, plus filterable category rails.
 - **Contact** — validated form, `mailto:` fallback, live IST clock, magnetic CTA.
 - **Chrome** — preloader with counter, custom cursor, grain overlay, scroll progress, dark default with a light theme.
@@ -81,13 +81,13 @@ Everything factual is centralised in `content/`:
 | File | Contents |
 | --- | --- |
 | `content/site.ts` | Name, role, bio, email, phone, location, socials, résumé path, stats, education, certifications, principles |
-| `content/projects.ts` | Six projects: summary, highlights, stack, GitHub / live URLs, accent colours |
+| `content/projects.ts` | Seven projects (three from the latest résumé, four earlier builds): summary, highlights, stack, GitHub / live URLs, accent colours |
 | `content/skills.ts` | Skill groups and the 22 nodes in the orbit |
-| `content/experience.ts` | Leadership timeline + marquee strings |
+| `content/experience.ts` | Xebia internship, leadership & recognition timeline, marquee strings |
 
 Adding a project only needs an entry in `projects.ts` — the home index, case-study route, static params, sitemap and next-project link all derive from it.
 
-To swap the résumé: replace `public/Mritunjai_Singh_CV.pdf` (keep the filename, or update `site.resume`).
+To swap the résumé: replace `public/Mritunjai_Singh_CV.pdf` (keep the filename, or update `site.resume`). The current file is the latest 2-page edition — `Mritunjai_Singh_Python_DS_AIML.pdf`, also kept at the repo root for reference.
 
 ---
 

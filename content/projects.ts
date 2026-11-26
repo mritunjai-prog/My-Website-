@@ -1,6 +1,6 @@
 /**
- * Project content — titles, summaries, metrics, stack and URLs are taken
- * verbatim (or lightly trimmed) from the CV and the existing live site.
+ * Project content — titles, summaries, metrics, stack and URLs are taken from
+ * the latest résumé (Mritunjai_Singh_Python_DS_AIML.pdf) and the live repos.
  * Nothing here is invented.
  */
 
@@ -24,30 +24,73 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "documind",
+    slug: "knowflow",
     index: "01",
+    title: "KnowFlow",
+    subtitle: "AI Knowledge Assistant · RAG + Vision",
+    year: "2026 — Present",
+    summary:
+      "A knowledge assistant that reads documents with computer vision, tags them by topic and answers questions over the retrieval layer — with a dashboard and a knowledge-graph view.",
+    highlights: [
+      "Developing a RAG document pipeline using OpenCV, OCR, ML topic tagging and action-item detection.",
+      "Implementing FAISS/Chroma retrieval with LLM-driven Q&A on a FastAPI + PostgreSQL backend.",
+      "Creating a React/TypeScript frontend with Zustand and TanStack Query, featuring a dashboard and knowledge-graph view.",
+    ],
+    tags: ["RAG", "Computer Vision", "FastAPI", "React", "ChromaDB"],
+    role: "Individual project · Full-stack AI",
+    githubUrl: "https://github.com/mritunjai-prog/KnowFlow",
+    accent: "#d9ff3f",
+    secondary: "#5ee7ff",
+    featured: true,
+  },
+  {
+    slug: "documind",
+    index: "02",
     title: "DocuMind",
-    subtitle: "Intelligent Document Processing System",
+    subtitle: "Intelligent Document Processing",
     year: "2026",
     summary:
-      "An AI pipeline for large-scale document understanding: structured extraction, contextual search and deployment-ready backend services.",
+      "An AI document-processing pipeline: Hugging Face transformers for extraction and classification, LangChain RAG for contextual Q&A, and Dockerised Python services behind it.",
     highlights: [
-      "Processed 1,000+ documents with 90% structured data extraction accuracy.",
-      "Integrated OCR and NER for automated document understanding.",
-      "Implemented RAG-based contextual question answering.",
-      "Deployed scalable backend services using Docker.",
+      "Processed 1,000+ documents with 92% structured data extraction accuracy.",
+      "Integrated Hugging Face transformer models for entity recognition, document classification and automated extraction.",
+      "Implemented LangChain-based RAG pipelines for contextual question answering using semantic search and vector retrieval.",
+      "Designed and deployed scalable Python backend services with Docker for ingestion, processing, retrieval and response generation.",
     ],
-    tags: ["GenAI", "RAG", "OCR", "NLP", "Docker"],
-    role: "AI pipeline · Backend · Retrieval",
+    tags: ["RAG", "LangChain", "Hugging Face", "FastAPI", "Docker"],
+    role: "AI pipeline · Python backend",
     githubUrl: "https://github.com/mritunjai-prog/DocuMind",
     demoUrl: "https://documinnd.netlify.app",
-    accent: "#d9ff3f",
-    secondary: "#8b6cff",
+    accent: "#8b6cff",
+    secondary: "#d9ff3f",
+    featured: true,
+  },
+  {
+    slug: "mentoraid",
+    index: "03",
+    title: "MentorAid",
+    subtitle: "ML Student Risk Prediction",
+    year: "2025",
+    summary:
+      "A dropout-risk prediction system trained and compared across 19 models on 9,424 student records, wrapped in a Flask prediction API and a React analytics dashboard.",
+    highlights: [
+      "Trained and compared 19 ML models — Random Forest, SVM and Logistic Regression — on 9,424 student records.",
+      "Built an end-to-end pipeline with feature engineering and SMOTE class balancing, reaching 84% accuracy with an optimised Random Forest.",
+      "Shipped a Flask REST API for CSV batch predictions using Joblib-serialised models, returning risk classes and confidence scores.",
+      "Created a React/TypeScript analytics dashboard with interactive charts, student-level insights and intervention tracking.",
+    ],
+    tags: ["Machine Learning", "Scikit-learn", "Flask", "React", "Analytics"],
+    role: "ML Engineer & Data Scientist",
+    demoUrl: "https://mentoraid.netlify.app",
+    githubUrl:
+      "https://github.com/mritunjai-prog/MentorAid-AI-based-Student-drop-out-prediction-system",
+    accent: "#5ee7ff",
+    secondary: "#d9ff3f",
     featured: true,
   },
   {
     slug: "stratosai",
-    index: "02",
+    index: "04",
     title: "StratosAI",
     subtitle: "GenAI Decision Intelligence Platform",
     year: "2026",
@@ -63,35 +106,12 @@ export const projects: Project[] = [
     role: "Product engineering · GenAI integration",
     githubUrl: "https://github.com/mritunjai-prog/StratosAI",
     demoUrl: "https://stratos-ai-rho.vercel.app",
-    accent: "#8b6cff",
-    secondary: "#5ee7ff",
-    featured: true,
-  },
-  {
-    slug: "mentoraid",
-    index: "03",
-    title: "MentorAid",
-    subtitle: "ML Student Risk Prediction",
-    year: "2025",
-    summary:
-      "A student-risk prediction system for early intervention, built around model comparison and analytics-driven educational decisions.",
-    highlights: [
-      "Trained 6 ML models including Random Forest, SVM and neural networks.",
-      "Reached 84% accuracy through feature engineering and tuning.",
-      "Developed an end-to-end ML pipeline.",
-      "Built a real-time analytics dashboard.",
-    ],
-    tags: ["Machine Learning", "Python", "Analytics", "Dashboard"],
-    role: "Modelling · Data pipeline · Dashboard",
-    demoUrl: "https://mentoraid.netlify.app",
-    githubUrl: "https://github.com/mritunjai-prog",
-    accent: "#5ee7ff",
-    secondary: "#d9ff3f",
-    featured: true,
+    accent: "#ff9a5e",
+    secondary: "#8b6cff",
   },
   {
     slug: "docentdesk",
-    index: "04",
+    index: "05",
     title: "DocentDesk",
     subtitle: "NLP Museum Companion",
     year: "2025",
@@ -107,12 +127,12 @@ export const projects: Project[] = [
     role: "NLP · Full-stack",
     githubUrl: "https://github.com/mritunjai-prog/DocentDesk-Museum-Chatbot",
     demoUrl: "https://docent-desk-ai-chatbot.vercel.app",
-    accent: "#ff9a5e",
-    secondary: "#8b6cff",
+    accent: "#9d8cff",
+    secondary: "#5ee7ff",
   },
   {
     slug: "kolamcraft",
-    index: "05",
+    index: "06",
     title: "KolamCraft",
     subtitle: "AI Cultural Art Platform",
     year: "2025",
@@ -133,7 +153,7 @@ export const projects: Project[] = [
   },
   {
     slug: "amphitheatre",
-    index: "06",
+    index: "07",
     title: "Amphitheatre",
     subtitle: "Seat Allocation System",
     year: "2025",
@@ -164,7 +184,7 @@ export const nextProject = (slug: string) => {
 };
 
 export const projectStats = [
-  { value: "06", label: "Projects shipped" },
+  { value: "07", label: "Projects shipped" },
   { value: "06", label: "Live deployments" },
-  { value: "100%", label: "End-to-end builds" },
+  { value: "03+", label: "Products at Xebia" },
 ] as const;
