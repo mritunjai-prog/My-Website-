@@ -26,13 +26,13 @@ export function About() {
 
       // Scale is owned by GSAP (not a utility class) so its transform writes
       // never strip the zoom and expose the crop's edges.
-      gsap.set(image, { scale: 1.16 });
+      gsap.set(image, { scale: 1.03 });
 
       gsap.fromTo(
         image,
-        { yPercent: -5 },
+        { yPercent: -2 },
         {
-          yPercent: 5,
+          yPercent: 2,
           ease: "none",
           scrollTrigger: {
             trigger: el,
@@ -84,34 +84,16 @@ export function About() {
                       alt="Portrait of Mritunjai Singh"
                       fill
                       sizes="(max-width: 1024px) 80vw, 430px"
-                      quality={82}
-                      className="object-cover object-[center_25%] grayscale-[35%] contrast-[1.05] transition-[filter] duration-700 ease-out-expo group-hover:grayscale-0"
+                      quality={85}
+                      className="object-cover object-center grayscale-[25%] contrast-[1.05] transition-[filter] duration-700 ease-out-expo group-hover:grayscale-0"
                     />
                   </div>
 
                   <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-t from-bg/85 via-bg/5 to-transparent"
+                    className="pointer-events-none absolute inset-0 rounded-full mix-blend-color bg-[radial-gradient(120%_100%_at_20%_0%,rgba(217,255,63,0.15),transparent_62%)]"
                   />
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0 rounded-full mix-blend-color bg-[radial-gradient(120%_100%_at_20%_0%,rgba(217,255,63,0.30),transparent_62%)]"
-                  />
-
-                  {/* Inner caption, kept clear of the curved edge */}
-                  <div className="absolute inset-x-14 bottom-8 flex flex-col items-center text-center">
-                    <p className="eyebrow text-acid">{site.role}</p>
-                    <p className="mt-1 font-display text-base tracking-tight text-white/90">
-                      {site.location}
-                    </p>
-                  </div>
                 </div>
-
-                {/* Availability badge */}
-                <span className="pill absolute -bottom-2 left-1/2 -translate-x-1/2 border-line bg-bg/90 text-fg/80 backdrop-blur-md">
-                  <span className="h-1.5 w-1.5 rounded-full bg-acid" />
-                  Available
-                </span>
 
                 {/* Accent arc */}
                 <svg
@@ -131,6 +113,20 @@ export function About() {
                     strokeLinecap="round"
                   />
                 </svg>
+              </div>
+
+              {/* Caption block below the portrait */}
+              <div className="mx-auto mt-6 flex max-w-[430px] flex-wrap items-center justify-between gap-3 text-sm">
+                <div>
+                  <p className="eyebrow text-acid">{site.role}</p>
+                  <p className="mt-0.5 font-display text-base tracking-tight text-fg/90">
+                    {site.location}
+                  </p>
+                </div>
+                <span className="pill border-line bg-panel text-fg/80 backdrop-blur-md">
+                  <span className="h-1.5 w-1.5 rounded-full bg-acid" />
+                  Available
+                </span>
               </div>
             </Reveal>
 
